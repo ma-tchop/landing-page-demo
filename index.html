@@ -14,6 +14,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  
+    <!-- local js Files -->
+    <script src="/assets/js/charts.js"></script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/cookies.js"></script>
+    <script src="assets/js/newsletter.js"></script>
+    <script src="assets/js/mobile-view.js"></script>
+  
   </head>
   <body class="bg-white font-sans antialiased overflow-x-hidden">
     <!-- Cookie Consent Popup -->
@@ -102,94 +110,96 @@
     </div>
 
     <!-- Header / Navigation -->
-    <header
-      class="bg-gray-900 bg-opacity-90 backdrop-blur-md fixed w-full z-50 transition-all duration-300"
-    >
-      <div
-        class="container mx-auto px-4 py-4 flex justify-between items-center"
+    <section>
+      <header
+        class="bg-gray-900 bg-opacity-90 backdrop-blur-md fixed w-full z-50 transition-all duration-300"
       >
-        <a href="#" class="text-white text-2xl font-bold tracking-tight"
-          >Ma Tchop</a
+        <div
+          class="container mx-auto px-4 py-4 flex justify-between items-center"
         >
-        <nav class="hidden md:flex space-x-8">
-          <a
-            href="#mission"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Mission</a
+          <a href="#" class="text-white text-2xl font-bold tracking-tight"
+            >Ma Tchop</a
           >
-          <a
-            href="#features"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Funktionen</a
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#mission"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Mission</a
+            >
+            <a
+              href="#features"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Funktionen</a
+            >
+            <a
+              href="#demo"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Demo</a
+            >
+            <a
+              href="#testimonials"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Erfahrungsberichte</a
+            >
+            <a
+              href="#newsletter"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Tester*in werden</a
+            >
+          </nav>
+          <button
+            class="md:hidden text-white focus:outline-none"
+            id="menu-toggle"
           >
-          <a
-            href="#demo"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Demo</a
-          >
-          <a
-            href="#testimonials"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Erfahrungsberichte</a
-          >
-          <a
-            href="#newsletter"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Tester*in werden</a
-          >
-        </nav>
-        <button
-          class="md:hidden text-white focus:outline-none"
-          id="menu-toggle"
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden bg-gray-900 bg-opacity-95 w-full absolute top-full left-0 py-4"
         >
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden bg-gray-900 bg-opacity-95 w-full absolute top-full left-0 py-4"
-      >
-        <nav class="flex flex-col items-center space-y-4">
-          <a
-            href="#mission"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Mission</a
-          >
-          <a
-            href="#features"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Funktionen</a
-          >
-          <a
-            href="#demo"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Demo</a
-          >
-          <a
-            href="#testimonials"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Erfahrungsberichte</a
-          >
-          <a
-            href="#newsletter"
-            class="text-white text-sm hover:text-primary-green transition"
-            >Tester*in werden</a
-          >
-        </nav>
-      </div>
-    </header>
+          <nav class="flex flex-col items-center space-y-4">
+            <a
+              href="#mission"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Mission</a
+            >
+            <a
+              href="#features"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Funktionen</a
+            >
+            <a
+              href="#demo"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Demo</a
+            >
+            <a
+              href="#testimonials"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Erfahrungsberichte</a
+            >
+            <a
+              href="#newsletter"
+              class="text-white text-sm hover:text-primary-green transition"
+              >Tester*in werden</a
+            >
+          </nav>
+        </div>
+      </header>
+    </section>
 
     <!-- Hero Section with Video Background -->
     <section
@@ -202,7 +212,7 @@
         muted
         playsinline
       >
-        <source src="img/fist1.mp4" type="video/mp4" />
+        <source src="asssets/img/fist1.mp4" type="video/mp4" />
         Dein Browser unterstützt kein Video.
       </video>
       <div
@@ -409,7 +419,7 @@
             class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
           >
             <img
-              src="img/screenshot1.jpg"
+              src="assets/img/screenshot1.jpg"
               alt="Dashboard"
               class="w-full h-64 object-cover rounded mb-4"
             />
@@ -421,7 +431,7 @@
             class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
           >
             <img
-              src="img/screenshot2.jpg"
+              src="assets/img/screenshot2.jpg"
               alt="Rezeptvorschläge"
               class="w-full h-64 object-cover rounded mb-4"
             />
@@ -433,7 +443,7 @@
             class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
           >
             <img
-              src="img/screenshot3.jpg"
+              src="assets/img/screenshot3.jpg"
               alt="CO2 Tracking"
               class="w-full h-64 object-cover rounded mb-4"
             />
@@ -458,7 +468,7 @@
             class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 hover:shadow-xl transition"
           >
             <img
-              src="img/user1.jpg"
+              src="assets/img/user1.jpg"
               alt="Nutzerin Lena"
               class="h-12 w-12 rounded-full object-cover"
             />
@@ -474,7 +484,7 @@
             class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 hover:shadow-xl transition"
           >
             <img
-              src="img/user2.jpg"
+              src="assets/img/user2.jpg"
               alt="Nutzer Cliford"
               class="h-12 w-12 rounded-full object-cover"
             />
@@ -626,7 +636,5 @@
         </div>
       </div>
     </footer>
-
-    <script src="/assets/js/script.js"></script>
   </body>
 </html>
