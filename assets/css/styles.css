@@ -148,7 +148,23 @@ body {
   color: var(--primary-green);
 }
 
+
 /* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .hero-content-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "graph";
+  }
+  .hero-graph {
+    margin-top: 4rem;
+  }
+  .hero-content{
+    margin-top: 6rem;
+  }
+}
+
 @media (max-width: 640px) {
   .hero {
     background-attachment: scroll;
