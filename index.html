@@ -6,452 +6,624 @@
     <title>
       Ma Tchop – Dein AI-Agent für nachhaltiges Einkaufen & gesunde Ernährung
     </title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
   </head>
-  <body>
-    <!-- ===========================
-       HEADER / NAVIGATION
-  =========================== -->
-    <header>
-      <div class="nav-inner container">
-        <a href="#" class="nav-logo">Ma Tchop</a>
-        <nav class="nav-menu">
-          <!--  <a href="#screenshots">Screenshots</a>
-        <a href="#testimonials">Erfahrungsberichte</a>
-        <a href="#faq">FAQ</a>
-        <a href="#blog">Blog & Ressourcen</a>  -->
-          <a href="#newsletter" class="btn">Tester*in werden</a>
+  <body class="bg-white font-sans antialiased overflow-x-hidden">
+    <!-- Cookie Consent Popup -->
+    <div
+      id="cookie-consent"
+      class="fixed bottom-0 left-0 right-0 bg-gray-900 bg-opacity-95 text-white p-4 sm:p-6 z-50 hidden"
+    >
+      <div class="container mx-auto max-w-2xl">
+        <h2 class="text-lg sm:text-xl font-semibold mb-4">
+          Wir verwenden Cookies
+        </h2>
+        <p class="text-sm sm:text-base mb-4">
+          Wir nutzen Cookies, um deine Erfahrung auf unserer Website zu
+          verbessern. Einige sind notwendig für die Funktionalität, andere
+          helfen uns, Inhalte zu personalisieren und die Nutzung zu analysieren.
+          Mehr erfährst du in unserer
+          <a
+            href="datenschutz.html"
+            class="underline text-primary-green hover:text-green-700"
+            >Datenschutzerklärung</a
+          >.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-4"
+        >
+          <button
+            id="cookie-settings"
+            class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-600 transition"
+          >
+            Einstellungen
+          </button>
+          <button
+            id="cookie-accept"
+            class="bg-primary-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition"
+          >
+            Alle akzeptieren
+          </button>
+        </div>
+        <div id="cookie-settings-modal" class="hidden mt-4">
+          <div class="bg-white text-gray-900 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold mb-4">Cookie-Einstellungen</h3>
+            <div class="space-y-4">
+              <div>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    checked
+                    disabled
+                    class="text-primary-green focus:ring-primary-green"
+                  />
+                  <span class="text-sm">Notwendige Cookies (immer aktiv)</span>
+                </label>
+              </div>
+              <div>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="analytics-cookies"
+                    class="text-primary-green focus:ring-primary-green"
+                  />
+                  <span class="text-sm">Analyse-Cookies</span>
+                </label>
+              </div>
+              <div>
+                <label class="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    id="marketing-cookies"
+                    class="text-primary-green focus:ring-primary-green"
+                  />
+                  <span class="text-sm">Marketing-Cookies</span>
+                </label>
+              </div>
+            </div>
+            <div class="flex justify-end mt-4">
+              <button
+                id="cookie-save"
+                class="bg-primary-green text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition"
+              >
+                Speichern
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header
+      class="bg-gray-900 bg-opacity-90 backdrop-blur-md fixed w-full z-50 transition-all duration-300"
+    >
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-white text-2xl font-bold tracking-tight"
+          >Ma Tchop</a
+        >
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#mission"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Mission</a
+          >
+          <a
+            href="#features"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Funktionen</a
+          >
+          <a
+            href="#demo"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Demo</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Erfahrungsberichte</a
+          >
+          <a
+            href="#newsletter"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Tester*in werden</a
+          >
+        </nav>
+        <button
+          class="md:hidden text-white focus:outline-none"
+          id="menu-toggle"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-gray-900 bg-opacity-95 w-full absolute top-full left-0 py-4"
+      >
+        <nav class="flex flex-col items-center space-y-4">
+          <a
+            href="#mission"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Mission</a
+          >
+          <a
+            href="#features"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Funktionen</a
+          >
+          <a
+            href="#demo"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Demo</a
+          >
+          <a
+            href="#testimonials"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Erfahrungsberichte</a
+          >
+          <a
+            href="#newsletter"
+            class="text-white text-sm hover:text-primary-green transition"
+            >Tester*in werden</a
+          >
         </nav>
       </div>
     </header>
 
-    <!-- ===========================
-       HERO-SEKTION
-  =========================== -->
-    <section class="hero">
-      <div class="hero-inner container">
-        <h1>Dein AI-Agent für nachhaltiges Einkaufen & gesunde Ernährung</h1>
-        <p>
-          Ma Tchop agiert intelligent in deinem Alltag: Spare Zeit, Geld & CO₂,
-          während deine Gesundheit und regionale Erzeuger profitieren!
-        </p>
-        <a href="#newsletter" class="btn">Jetzt Tester*in werden</a>
-      </div>
-    </section>
-
-    <!-- ===========================
-       FEATURES / FUNKTIONEN
-  =========================== -->
-    <section id="features" class="features container">
-      <h2 class="section-title">Warum Ma Tchop ein echter Gamechanger ist</h2>
-      <ul class="feature-list">
-        <li class="feature-item">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="feature-icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <p class="feature-text">
-            <strong>360° AI-Bestandsmanager:</strong> Verabschiede dich von
-            abgelaufenen Lebensmitteln. Ma Tchop überwacht automatisch deine
-            Vorräte (Barcode-Scanner, Smart-Home-Integration) und warnt dich
-            rechtzeitig vor Ablaufdaten.
-          </p>
-        </li>
-        <li class="feature-item">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="feature-icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <p class="feature-text">
-            <strong>Automatisches Bestellen:</strong> Unsere KI erkennt, wenn
-            bestimmte Produkte knapp werden, schlägt dir bevorzugte
-            Lieferdienste (lokal oder über Partner) vor und erledigt den Einkauf
-            auf Wunsch mit nur einem Klick.
-          </p>
-        </li>
-        <li class="feature-item">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="feature-icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <p class="feature-text">
-            <strong>Persönliche Ernährungsanalyse:</strong> Gib deine Ziele (z.
-            B. Kalorien, Makronährstoffe, Allergien, Diät-Vorlieben) ein. Ma
-            Tchop schlägt dir Rezepte vor, die perfekt zu deinem Profil und
-            deinen Vorräten passen.
-          </p>
-        </li>
-        <li class="feature-item">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="feature-icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <p class="feature-text">
-            <strong>CO₂-Footprint-Tracking:</strong> Jeder Einkauf wird auf
-            seinen Klima-Impact geprüft. Ma Tchop zeigt dir, wie viel CO₂ du
-            sparst, wenn du regionale Produkte wählst oder überschüssige Waren
-            rettest.
-          </p>
-        </li>
-        <li class="feature-item">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="feature-icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <p class="feature-text">
-            <strong>Spenden- & Sharing-Funktion:</strong> Gerate vor Ablaufdatum
-            an überschüssige Lebensmittel? Ma Tchop verbindet dich mit lokalen
-            Foodbanks und Nachbarn, um Reste unkompliziert zu teilen oder zu
-            spenden.
-          </p>
-        </li>
-        <li class="feature-item">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="feature-icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <p class="feature-text">
-            <strong>Regionale Bauern-Marktplatz-Integration:</strong> Kaufe
-            Frisches direkt vom Hof in deiner Nähe. Kurze Wege, faire Preise und
-            transparente Herkunft.
-          </p>
-        </li>
-        <li class="feature-item">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="feature-icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <p class="feature-text">
-            <strong>Gamification & Community:</strong> Erfülle nachhaltige
-            Challenges, sammle Punkte für CO₂-Ersparnis und Ernährungserfolge,
-            tausche dich in der Community aus und sammel Badges.
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ===========================
-     PARTNER
-=========================== -->
-    <section id="partners" class="partners container">
-      <h2 class="section-title">Unsere Partner</h2>
-      <div class="partners-list">
-        <div class="partner-item">
-          <img src="img/go.png" alt="Lokaler Partner" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================
-       SCREENSHOTS / DEMO-VIDEO
-  =========================== 
-  <section id="screenshots" class="screenshots container">
-    <h2 class="section-title">App im Einsatz</h2>
-    <div class="screenshot-gallery">
-      <div class="screenshot-item">
-        <img src="screenshot1.jpg" alt="Screenshot: Dashboard" />
-      </div>
-      <div class="screenshot-item">
-        <img src="screenshot2.jpg" alt="Screenshot: Rezeptvorschläge" />
-      </div>
-      <div class="screenshot-item">
-        <img src="screenshot3.jpg" alt="Screenshot: CO₂-Tracking" />
-      </div>
-    </div>
-    <div class="demo-video">
-      <video width="100%" controls muted>
-        <source src="demo.mp4" type="video/mp4" />
-        Dein Browser unterstützt dieses Videoformat nicht.
-      </video>
-    </div>
-  </section>
--->
-
-    <!-- ===========================
-       TESTIMONIALS / ERFAHRUNGSBERICHTE
-  =========================== -->
-    <section id="testimonials" class="testimonials container">
-      <h2 class="section-title">Erfahrungsberichte</h2>
-      <div class="testimonial-list">
-        <div class="testimonial-item">
-            <!-- Nutzerin Lena 
-          <img src="user1.jpg" alt="Nutzerin Lena" class="testimonial-avatar" /> -->
-          <blockquote class="testimonial-text">
-            „Ma Tchop ist zwar noch ein Prototyp, aber ich habe in den letzten
-            drei Wochen über 30 % weniger Lebensmittel verschwendet. Die
-            CO₂-Statistiken motivieren mich jeden Tag.“
-          </blockquote>
-          <p class="testimonial-author">Lena, Berlin</p>
-        </div>
-        <div class="testimonial-item">
-            <!-- Nutzer Max 
-             <img src="user2.jpg" alt="Nutzer Max" class="testimonial-avatar" />  -->
-          <blockquote class="testimonial-text">
-            „Die Ernährungsanalyse hilft mir, meine Fitnessziele im Blick zu
-            behalten. Die App ist zwar noch nicht fertig, bietet aber bereits
-            einen einfachen Überblick über meine Ernährung und
-            Gesundheitsziele.“
-          </blockquote>
-          <p class="testimonial-author">Cliford, Bayreuth</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================
-       FAQ
-  =========================== 
-  <section id="faq" class="faq container">
-    <h2 class="section-title">Häufig gestellte Fragen</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3 class="faq-question">Wie funktioniert das Barcode-Scanning?</h3>
-        <p class="faq-answer">In der App kannst du den Barcode eines Produkts scannen – Ma Tchop erkennt automatisch Marke, Produktname und Ablaufdatum, sofern verfügbar. So bleibt dein Vorrat immer aktuell.</p>
-      </div>
-      <div class="faq-item">
-        <h3 class="faq-question">Sind meine Ernährungsdaten sicher?</h3>
-        <p class="faq-answer">Ja. Alle persönlichen Daten (z. B. Allergien, Kalorienziele) werden verschlüsselt gespeichert und nicht an Dritte weitergegeben. Ma Tchop ist DSGVO-konform.</p>
-      </div>
-      <div class="faq-item">
-        <h3 class="faq-question">Welche Lieferdienste sind integriert?</h3>
-        <p class="faq-answer">Aktuell unterstützen wir Rewe Lieferservice, Bringmeister und lokale Bauernhöfe. Weitere Partner kommen bald dazu.</p>
-      </div>
-      <div class="faq-item">
-        <h3 class="faq-question">Wie kann ich überschüssige Lebensmittel spenden?</h3>
-        <p class="faq-answer">Wenn ein Produkt kurz vor dem Ablaufdatum steht und du es nicht mehr selbst benötigst, schlägt Ma Tchop eine Spende an eine lokale Foodbank vor. Du kannst via App eine Abholung oder Übergabe an Nachbarn organisieren.</p>
-      </div>
-    </div>
-  </section>
--->
-    <!-- ===========================
-       TRUST BADGES & SICHERHEIT
-  =========================== 
-  <section class="trust-badges container">
-    <h2 class="section-title">Vertrauen & Sicherheit</h2>
-    <div class="badges-list">
-      <div class="badge-item">
-        <img src="dsgvo-badge.png" alt="DSGVO-konform" />
-      </div>
-      <div class="badge-item">
-        <img src="stripe-badge.png" alt="Zahlung via Stripe" />
-      </div>
-      <div class="badge-item">
-        <img src="ssl-badge.png" alt="SSL-gesichert" />
-      </div>
-    </div>
-  </section>
--->
-    <!-- ===========================
-       DOWNLOAD-BUTTONS (App Store / Play Store)
-  =========================== 
-  <section class="downloads container">
-    <h2 class="section-title">App herunterladen</h2>
-    <div class="download-buttons">
-      <a href="#" class="download-btn">
-        <img src="appstore-badge.png" alt="App Store" />
-      </a>
-      <a href="#" class="download-btn">
-        <img src="playstore-badge.png" alt="Google Play" />
-      </a>
-    </div>
-  </section>
--->
-    <!-- ===========================
-       BLOG & RESSOURCEN
-  =========================== 
-  <section id="blog" class="blog container">
-    <h2 class="section-title">Blog & Ressourcen</h2>
-    <div class="resource-list">
-      <article class="resource-item">
-        <h3><a href="#">5 Tipps gegen Lebensmittelverschwendung</a></h3>
-        <p>Erfahre, wie du mit einfachen Methoden Nahrungsmittel rettest und dabei dein Budget schonst.</p>
-      </article>
-      <article class="resource-item">
-        <h3><a href="#">Wie KI dein Einkaufsverhalten nachhaltiger macht</a></h3>
-        <p>Ein Whitepaper zu den Potenzialen von künstlicher Intelligenz in der Lebensmittelverwaltung.</p>
-      </article>
-      <article class="resource-item">
-        <h3><a href="#">Ernährungsanalyse für Fitnessziele</a></h3>
-        <p>So nutzt du Ma Tchop, um deine Makronährstoffe optimal abzustimmen.</p>
-      </article>
-    </div>
-    <div class="blog-cta text-center">
-      <a href="#" class="btn">Mehr lesen →</a>
-    </div>
-  </section>
--->
-    <!-- ===========================
-       SOCIAL PROOF / METRISCHEN KENNZAHLEN
-  =========================== 
-  <section class="social-proof container">
-    <h2 class="section-title">Unsere Erfolge auf einen Blick</h2>
-    <div class="metrics-list">
-      <div class="metric-item">
-        <h3>500+</h3>
-        <p>Beta-Tester angemeldet</p>
-      </div>
-      <div class="metric-item">
-        <h3>10+</h3>
-        <p>Partnerbauern aktiv</p>
-      </div>
-      <div class="metric-item">
-        <h3>1 t+</h3>
-        <p>CO₂ bisher eingespart</p>
-      </div>
-      <div class="metric-item">
-        <h3>100 %</h3>
-        <p>DSGVO-konforme App</p>
-      </div>
-    </div>
-  </section>
--->
-    <!-- ===========================
-       NEWSLETTER / CTA
-  =========================== -->
-    <section id="newsletter" class="newsletter container">
-      <h2 class="section-title">Teste Ma Tchop: Dein AI-Agent live erleben</h2>
-      <p class="section-subtitle text-center">
-        Trage dich ein, um als Erste*r Zugriff auf unseren Prototypen zu
-        erhalten – inklusive AI-gestütztem Ernährungs- und CO₂-Tracking!
-      </p>
-
-      <!-- Formular mit eindeutiger ID  thius  just a text-->
-      <form
-        id="newsletter-form"
-        class="newsletter-form"
-        action="https://formspree.io/f/xpwrwrbk"
-        method="POST"
-        novalidate
+    <!-- Hero Section with Video Background -->
+    <section
+      class="hero min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
+      <video
+        class="absolute inset-0 w-full h-full object-cover"
+        autoplay
+        loop
+        muted
+        playsinline
       >
-        <div class="input-group">
-          <input type="text" name="name" placeholder="Dein Name" required />
+        <source src="img/fist1.mp4" type="video/mp4" />
+        Dein Browser unterstützt kein Video.
+      </video>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"
+      ></div>
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h1
+          class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 animate-fade-in"
+        >
+          Revolutioniere deinen Einkauf mit Ma Tchop
+        </h1>
+        <p
+          class="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto"
+        >
+          Dein KI-gestützter Begleiter für nachhaltiges Einkaufen, gesunde
+          Ernährung und CO₂-Reduktion.
+        </p>
+        <a
+          href="#newsletter"
+          class="inline-block bg-primary-green text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transition transform hover:scale-105"
+          >Jetzt Tester*in werden</a
+        >
+        <div class="mt-8 sustainability-meter">
+          <div class="w-48 h-48 mx-auto relative">
+            <svg class="w-full h-full" viewBox="0 0 100 100">
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                fill="none"
+                stroke="#e0e0e0"
+                stroke-width="10"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                fill="none"
+                stroke="var(--primary-green)"
+                stroke-width="10"
+                stroke-dasharray="283"
+                stroke-dashoffset="100"
+                class="meter"
+              />
+            </svg>
+            <div
+              class="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold"
+            >
+              CO₂ gespart
+            </div>
+          </div>
         </div>
-        <div class="input-group">
+      </div>
+      <div class="absolute inset-0 pointer-events-none particle-overlay"></div>
+    </section>
+
+    <!-- Mission Section with Animated Chart -->
+    <section id="mission" class="py-16 bg-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
+          Unsere Mission: Nachhaltigkeit neu definiert
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+          Ma Tchop nutzt KI, um Lebensmittelverschwendung zu reduzieren,
+          regionale Produkte zu fördern und deinen CO₂-Fußabdruck zu minimieren.
+        </p>
+        <div class="chart-container w-full max-w-md mx-auto">
+          <canvas id="mission-chart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section with Interactive Cards -->
+    <section id="features" class="py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12"
+        >
+          Warum Ma Tchop die Zukunft ist
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
+          >
+            <img
+              src="img/feature-inventory.png"
+              alt="Inventory Manager"
+              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
+            />
+            <h3 class="text-xl font-semibold text-gray-900 text-center">
+              360° AI-Bestandsmanager
+            </h3>
+            <p class="text-gray-600 text-center">
+              Verabschiede dich von abgelaufenen Lebensmitteln. Ma Tchop
+              überwacht deine Vorräte automatisch.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
+          >
+            <img
+              src="img/feature-order.png"
+              alt="Automatic Ordering"
+              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
+            />
+            <h3 class="text-xl font-semibold text-gray-900 text-center">
+              Automatisches Bestellen
+            </h3>
+            <p class="text-gray-600 text-center">
+              KI erkennt knappe Produkte und bestellt mit einem Klick über
+              lokale Lieferdienste.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
+          >
+            <img
+              src="img/feature-nutrition.png"
+              alt="Nutrition Analysis"
+              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
+            />
+            <h3 class="text-xl font-semibold text-gray-900 text-center">
+              Persönliche Ernährungsanalyse
+            </h3>
+            <p class="text-gray-600 text-center">
+              Ma Tchop schlägt Rezepte passend zu deinen Zielen und Vorräten
+              vor.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
+          >
+            <img
+              src="img/feature-co2.png"
+              alt="CO2 Tracking"
+              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
+            />
+            <h3 class="text-xl font-semibold text-gray-900 text-center">
+              CO₂-Footprint-Tracking
+            </h3>
+            <p class="text-gray-600 text-center">
+              Jeder Einkauf wird auf Klima-Impact geprüft, um CO₂ zu sparen.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
+          >
+            <img
+              src="img/feature-sharing.png"
+              alt="Sharing Function"
+              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
+            />
+            <h3 class="text-xl font-semibold text-gray-900 text-center">
+              Spenden- & Sharing-Funktion
+            </h3>
+            <p class="text-gray-600 text-center">
+              Teile überschüssige Lebensmittel mit Foodbanks oder Nachbarn.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
+          >
+            <img
+              src="img/feature-market.png"
+              alt="Local Market"
+              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
+            />
+            <h3 class="text-xl font-semibold text-gray-900 text-center">
+              Regionale Bauern-Marktplatz
+            </h3>
+            <p class="text-gray-600 text-center">
+              Kaufe frische Produkte direkt vom Hof in deiner Nähe.
+            </p>
+          </div>
+          <div
+            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
+          >
+            <img
+              src="img/feature-community.png"
+              alt="Community"
+              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
+            />
+            <h3 class="text-xl font-semibold text-gray-900 text-center">
+              Gamification & Community
+            </h3>
+            <p class="text-gray-600 text-center">
+              Erfülle Challenges, sammle Punkte und tausche dich aus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Demo Section -->
+    <section id="demo" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12"
+        >
+          Entdecke Ma Tchop in Aktion
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="img/screenshot1.jpg"
+              alt="Dashboard"
+              class="w-full h-64 object-cover rounded mb-4"
+            />
+            <p class="text-gray-600 text-center">
+              Interaktives Dashboard für deine Vorräte.
+            </p>
+          </div>
+          <div
+            class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="img/screenshot2.jpg"
+              alt="Rezeptvorschläge"
+              class="w-full h-64 object-cover rounded mb-4"
+            />
+            <p class="text-gray-600 text-center">
+              Personalisierte Rezepte für deine Ziele.
+            </p>
+          </div>
+          <div
+            class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="img/screenshot3.jpg"
+              alt="CO2 Tracking"
+              class="w-full h-64 object-cover rounded mb-4"
+            />
+            <p class="text-gray-600 text-center">
+              Verfolge deinen CO₂-Fußabdruck in Echtzeit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section with Avatars -->
+    <section id="testimonials" class="py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12"
+        >
+          Erfahrungsberichte
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div
+            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 hover:shadow-xl transition"
+          >
+            <img
+              src="img/user1.jpg"
+              alt="Nutzerin Lena"
+              class="h-12 w-12 rounded-full object-cover"
+            />
+            <div>
+              <blockquote class="text-gray-600 italic mb-4">
+                „Ma Tchop hat meine Lebensmittelverschwendung um 30 % reduziert.
+                Die CO₂-Statistiken sind super motivierend!“
+              </blockquote>
+              <p class="text-gray-900 font-semibold">Lena, Berlin</p>
+            </div>
+          </div>
+          <div
+            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 hover:shadow-xl transition"
+          >
+            <img
+              src="img/user2.jpg"
+              alt="Nutzer Cliford"
+              class="h-12 w-12 rounded-full object-cover"
+            />
+            <div>
+              <blockquote class="text-gray-600 italic mb-4">
+                „Die Ernährungsanalyse hilft mir, meine Fitnessziele im Blick zu
+                behalten. Einfach und effektiv!“
+              </blockquote>
+              <p class="text-gray-900 font-semibold">Cliford, Bayreuth</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-16 bg-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+          Teste Ma Tchop: Dein AI-Agent live
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Melde dich an, um als Erste*r unseren Prototypen mit KI-gestütztem
+          Ernährungs- und CO₂-Tracking zu erleben!
+        </p>
+        <form
+          id="newsletter-form"
+          class="newsletter-form flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+          action="https://formspree.io/f/xpwrwrbk"
+          method="POST"
+          novalidate
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Dein Name"
+            required
+            class="px-4 py-3 rounded-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-green"
+          />
           <input
             type="email"
             name="email"
             placeholder="Deine E-Mail-Adresse"
             required
+            class="px-4 py-3 rounded-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-green"
           />
+          <button
+            type="submit"
+            class="bg-primary-green text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition transform hover:scale-105"
+          >
+            Jetzt anmelden
+          </button>
+        </form>
+        <div id="thank-you" class="thank-you hidden mt-4">
+          <p class="text-gray-900 text-lg">
+            Danke fürs Eintragen! 🎉 Wir melden uns in Kürze bei dir.
+          </p>
         </div>
-        <button type="submit" class="btn">Jetzt anmelden</button>
-      </form>
-
-      <!-- Versteckte Dankes-Meldung, wird per JavaScript eingeblendet -->
-      <div id="thank-you" class="thank-you hidden">
-        <p>Danke fürs Eintragen! 🎉 Wir melden uns in Kürze bei dir.</p>
       </div>
     </section>
 
-    <!-- ===========================
-       FOOTER
-  =========================== -->
-    <footer class="footer">
-      <div class="footer-inner container">
-        <div class="footer-section">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="#features">Funktionen</a></li>
-            <li><a href="#partners">Partner</a></li>
-            <li><a href="#newsletter">Kontakt</a></li>
-          </ul>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#mission"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >Mission</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#features"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >Funktionen</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#demo"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >Demo</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#newsletter"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >Kontakt</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontakt & Social</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="mailto:Matchop@web.de"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >Matchop@web.de</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/matchop___/?igsh=eHdkbWJneGxmNXph&utm_source=qr"
+                  target="_blank"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >Instagram</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >LinkedIn</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Rechtliches</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="impressum.html"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >Impressum</a
+                >
+              </li>
+              <li>
+                <a
+                  href="datenschutz.html"
+                  class="text-gray-300 hover:text-primary-green transition"
+                  >Datenschutz</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="footer-section">
-          <h4>Kontakt & Social</h4>
-          <ul>
-            <li><a href="mailto:Matchop@web.de">Matchop@web.de</a></li>
-
-            <li>
-              <a href="https://www.instagram.com/Mymatchop" target="_blank"
-                >Instagram</a
-              >
-            </li>
-            <li><a href="#" target="_blank">LinkedIn</a></li>
-          </ul>
+        <div class="mt-8 text-center text-gray-300">
+          &copy; 2025 Ma Tchop. Alle Rechte vorbehalten.
         </div>
-
-      
-      <div class="footer-section">
-        <h4>Rechtliches</h4>
-        <ul>
-          <li><a href="#" target="_blank">Impressum</a></li>
-          <li><a href="#" target="_blank">Datenschutz</a></li>
-          
-        </ul>
-      </div>
-  
-      </div>
-      <div class="footer-bottom container text-center">
-        &copy; 2025 Ma Tchop. Alle Rechte vorbehalten.
       </div>
     </footer>
 

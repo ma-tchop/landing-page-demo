@@ -1,628 +1,197 @@
-/* ===========================================
-   RESET & TYPOGRAFIE
-=========================================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Custom styles for a futuristic, Apple-inspired design with Ma Tchop colors */
+:root {
+  --primary-green: #07A119;
+  --secondary-gray: #4B5EAA;
+  --background-white: #FFFFFF;
+  --gradient-accent: linear-gradient(135deg, #07A119, #4B5EAA);
 }
-html {
-  scroll-behavior: smooth;
-}
+
 body {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #111;
-  background-color: #fff;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-ul {
-  list-style: none;
-}
-img {
-  max-width: 100%;
-  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background-white);
+  overflow-x: hidden;
 }
 
-/* ===========================================
-   CONTAINER & TEXTALIGN
-=========================================== */
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
 .container {
-  width: 95%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.text-center {
-  text-align: center;
+  max-width: 1280px;
 }
 
-/* ===========================================
-   BUTTON (DUNKELGRÜN #07A119)
-=========================================== */
 .btn {
-  display: inline-block;
-  font-weight: 600;
-  background-color: #07A119;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  transition: all 0.3s ease;
 }
+
 .btn:hover {
-  background-color: #068f16;
-  transform: translateY(-1px);
-}
-.btn:active {
-  transform: translateY(1px);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-
-
-/* ===========================================
-   HEADER / NAVIGATION (Sticky)
-=========================================== */
-header {
-  width: 100%;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #eaeaea;
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  z-index: 100;
-}
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #07a119;
-}
-.nav-menu {
-  display: flex;
-  gap: 1rem;
-  font-weight: 500;
-}
-.nav-menu a {
-  padding: 0.25rem;
-  transition: color 0.2s ease;
-  font-size: 0.95rem;
-}
-.nav-menu a:hover {
-  color: #07a119;
-}
-
-/* ===========================================
-   HERO-SEKTION
-=========================================== */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 70vh;
-  min-height: 400px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  padding: 0 1rem;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("img/h5.jpg") center/cover no-repeat;
-  filter: brightness(0.5);
-  z-index: -2;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: -1;
-}
-.hero-inner {
-  max-width: 700px;
-  padding: 0 1rem;
-}
-.hero h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-.hero p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-/* ===========================================
-   ABSCHNITTS-TITEL
-=========================================== */
-.section-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/* ===========================================
-   FEATURES-Sektion
-=========================================== */
-.features {
-  padding: 3rem 0;
-  background-color: #fafafa;
-}
-.feature-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-@media (min-width: 768px) {
-  .feature-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-.feature-icon {
-  flex-shrink: 0;
-  width: 1.75rem;
-  height: 1.75rem;
-  color: #07A119;
-}
-.feature-text {
-  font-size: 0.95rem;
-  color: #333;
-}
-
-/* ===========================================
-   PARTNER-Sektion
-=========================================== */
-.partners {
-  padding: 3rem 0;
-}
-
-.partners-list {
-  display: grid;
-  /* Hier nur eine Spalte, die zentriert wird */
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  align-items: center;
-  justify-items: center;
-  /* sorgt dafür, dass die (einzige) Spalte mittig ist */
-  justify-content: center;
-}
-
-.partner-item {
-  text-align: center;
-}
-
-.partner-item img {
-  width: 300px;
-  height: 300px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-  /* Semikolon ergänzt, justify-content hier entfällt */
-}
-
-.partner-item p {
-  font-size: 0.85rem;
-  color: #807979;
-}
-
-/* ===========================================
-   SCREENSHOTS / DEMO-VIDEO
-=========================================== */
-.screenshots {
-  padding: 3rem 0;
-}
-.screenshot-gallery {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-@media (min-width: 480px) {
-  .screenshot-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-}
-.screenshot-item img {
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-}
-.demo-video video {
-  width: 100%;
-  max-height: 300px;
-  border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-}
-
-/* ===========================================
-   TESTIMONIALS
-=========================================== */
-.testimonials {
-  padding: 3rem 0;
-  background-color: #fafafa;
-}
-.testimonial-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  justify-items: center; /* zentriert jede Zelle */
-}
-@media (min-width: 768px) {
-  .testimonial-list {
-    /* Auto-Fit sorgt dafür, dass immer 2 (oder 3) Spalten entstehen,
-       und justify-content zentriert das Grid selbst bei Lücken */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    justify-content: center;
-  }
-}
-.testimonial-item {
-  background-color: #fff;
-  border-radius: 6px;
-  padding: 1.25rem;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-  text-align: center;
-  max-width: 350px;
-  width: 100%;
-}
-.testimonial-avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0 auto 0.75rem;
-}
-.testimonial-text {
-  font-style: italic;
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
-  color: #333;
-}
-.testimonial-author {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #555;
-}
-
-
-/* ===========================================
-   FAQ
-=========================================== */
-.faq {
-  padding: 3rem 0;
-}
-.faq-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-@media (min-width: 768px) {
-  .faq-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-.faq-item {
-  background-color: #fafafa;
-  border-radius: 6px;
-  padding: 1.25rem;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.03);
-}
-.faq-question {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #111;
-}
-.faq-answer {
-  color: #555;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-/* ===========================================
-   TRUST BADGES
-=========================================== */
-.trust-badges {
-  padding: 3rem 0;
-  background-color: #fff;
-}
-.badges-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-}
-.badge-item img {
-  width: 100px;
-  height: auto;
-  object-fit: contain;
-}
-
-/* ===========================================
-   DOWNLOAD-BUTTONS
-=========================================== */
-.downloads {
-  padding: 3rem 0;
-  background-color: #fafafa;
-  text-align: center;
-}
-.download-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-.download-btn img {
-  height: 40px;
-  object-fit: contain;
-}
-
-/* ===========================================
-   BLOG & RESSOURCEN
-=========================================== */
-.blog {
-  padding: 3rem 0;
-}
-.resource-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-@media (min-width: 768px) {
-  .resource-list {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-.resource-item h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #111;
-}
-.resource-item p {
-  color: #555;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-.blog-cta {
-  margin-top: 1.5rem;
-}
-
-/* ===========================================
-   SOCIAL PROOF / METRISCHEN KENNZAHLEN
-=========================================== */
-.social-proof {
-  padding: 3rem 0;
-  background-color: #fff;
-}
-.metrics-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  text-align: center;
-}
-@media (min-width: 768px) {
-  .metrics-list {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.metric-item h3 {
-  font-size: 1.75rem;
-  font-weight: 600;
-  color: #07A119;
-  margin-bottom: 0.5rem;
-}
-.metric-item p {
-  color: #333;
-  font-size: 0.9rem;
-}
-
-/* -----------------------------
-   NEWSLETTER / CTA – MODERN & CLEAN
------------------------------- */
-.newsletter {
-  padding: 3rem 0;
-  background-color: #fafafa;
-}
-.newsletter .section-title {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  color: #111;
-}
-.newsletter .section-subtitle {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 1.5rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.4;
-}
-
-.newsletter-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
-@media (min-width: 600px) {
-  .newsletter-form {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-/* Gruppiert jedes Input-Feld */
-.input-group {
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-}
-.input-group input {
-  width: 100%;
-  padding: 0.65rem 1rem;
-  font-size: 0.95rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fff;
-  color: #333;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-.input-group input::placeholder {
-  color: #aaa;
-}
-.input-group input:focus {
-  outline: none;
-  border-color: #07A119;
-  box-shadow: 0 0 0 3px rgba(7, 161, 25, 0.15);
-}
-
-/* Versteckte Klasse */
 .hidden {
   display: none;
 }
 
-/* Dankes-Meldung */
-.thank-you {
-  margin-top: 1.5rem;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-  font-size: 0.95rem;
-  color: #111;
+/* Cookie Consent Popup */
+#cookie-consent {
+  animation: slideUp 0.5s ease-out;
 }
 
-/* ===========================================
-   FOOTER
-=========================================== */
-.footer {
-  background-color: #111;
-  color: #ccc;
-  padding: 1.5rem 0;
-}
-.footer-inner {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-@media (min-width: 768px) {
-  .footer-inner {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-.footer-section h4 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 0.5rem;
-}
-.footer-section ul li {
-  margin-bottom: 0.5rem;
-}
-.footer-section a {
-  color: #ccc;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-}
-.footer-section a:hover {
-  color: #07A119;
-}
-.footer-bottom {
-  text-align: center;
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  color: #666;
+@keyframes slideUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
 }
 
-/* ===========================================
-   MOBILE-OPTIMIERUNGEN (extra)
-=========================================== */
-@media (max-width: 480px) {
-  /* Navigation: reduzieren */
-  .nav-menu {
-    display: none;
-  }
-  header .container {
-    justify-content: space-between;
+#cookie-settings-modal {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Sustainability Meter Animation */
+.sustainability-meter .meter {
+  animation: meterFill 2s ease-in-out forwards;
+}
+
+@keyframes meterFill {
+  0% { stroke-dashoffset: 283; }
+  100% { stroke-dashoffset: 50; }
+}
+
+/* Hero Video */
+.hero video {
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+/* Particle Overlay */
+.particle-overlay {
+  background: url('img/particles.png') repeat;
+  animation: particleMove 20s linear infinite;
+}
+
+@keyframes particleMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* Feature Card 3D Tilt */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  perspective: 1000px;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card img {
+  transition: transform 0.3s ease;
+}
+
+.feature-card img:hover {
+  transform: scale(1.1);
+}
+
+/* Demo Card */
+.demo-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.demo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Partner Carousel */
+.partner-carousel {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.partner-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.partner-item img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.partner-item img:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* Color Classes */
+.bg-primary-green {
+  background-color: var(--primary-green);
+}
+
+.text-primary-green {
+  color: var(--primary-green);
+}
+
+.focus\:ring-primary-green:focus {
+  --tw-ring-color: var(--primary-green);
+}
+
+.hover\:bg-green-700:hover {
+  background-color: #058614;
+}
+
+.hover\:text-primary-green:hover {
+  color: var(--primary-green);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .hero {
+    background-attachment: scroll;
   }
 
-  /* Hero: Schrift verkleinern */
   .hero h1 {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
   }
+
   .hero p {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
   }
 
-  /* Features: grösserer Abstand */
-  .feature-text {
-    font-size: 0.9rem;
+  .sustainability-meter {
+    transform: scale(0.8);
   }
 
-  /* Testimonials: einzelne Spalte */
-  .testimonial-item {
+  .feature-card, .demo-card {
+    transform: none !important;
+  }
+
+  .partner-carousel {
+    scroll-padding: 1rem;
+  }
+
+  #cookie-consent {
     padding: 1rem;
   }
-  .testimonial-text {
-    font-size: 0.9rem;
+
+  #cookie-consent h2 {
+    font-size: 1.25rem;
   }
 
-  /* FAQ: einzelne Spalte, Textgröße reduzieren */
-  .faq-question {
-    font-size: 0.95rem;
-  }
-  .faq-answer {
-    font-size: 0.9rem;
+  #cookie-consent p {
+    font-size: 0.875rem;
   }
 
-  /* Abschnittstitel: kleiner */
-  .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+  #cookie-consent button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
 
-  /* Button: kompakter */
-  .btn {
-    padding: 0.6rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  /* Download-Badges: etwas kleiner */
-  .download-btn img {
-    height: 35px;
-  }
-
-  /* Metriken: Abstand verringern */
-  .metric-item h3 {
-    font-size: 1.5rem;
-  }
-  .metric-item p {
-    font-size: 0.85rem;
+  .chart-container {
+    max-width: 100%;
   }
 }

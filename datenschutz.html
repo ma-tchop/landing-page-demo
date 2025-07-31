@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datenschutzerklärung – Ma Tchop</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  </head>
+  <body class="bg-white font-sans antialiased overflow-x-hidden">
+    <!-- Header / Navigation -->
+    <header class="bg-gray-900 bg-opacity-90 backdrop-blur-md fixed w-full z-50 transition-all duration-300">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-white text-2xl font-bold tracking-tight">Ma Tchop</a>
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.html#features" class="text-white text-sm hover:text-primary-green transition">Funktionen</a>
+          <a href="index.html#partners" class="text-white text-sm hover:text-primary-green transition">Partner</a>
+          <a href="index.html#testimonials" class="text-white text-sm hover:text-primary-green transition">Erfahrungsberichte</a>
+          <a href="index.html#newsletter" class="text-white text-sm hover:text-primary-green transition">Tester*in werden</a>
+        </nav>
+        <button class="md:hidden text-white focus:outline-none" id="menu-toggle">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-95 w-full absolute top-full left-0 py-4">
+        <nav class="flex flex-col items-center space-y-4">
+          <a href="index.html#features" class="text-white text-sm hover:text-primary-green transition">Funktionen</a>
+          <a href="index.html#partners" class="text-white text-sm hover:text-primary-green transition">Partner</a>
+          <a href="index.html#testimonials" class="text-white text-sm hover:text-primary-green transition">Erfahrungsberichte</a>
+          <a href="index.html#newsletter" class="text-white text-sm hover:text-primary-green transition">Tester*in werden</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Datenschutzerklärung Content -->
+    <section class="py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 animate-fade-in">Datenschutzerklärung</h1>
+        <div class="prose max-w-3xl mx-auto text-gray-700">
+          <h2 class="text-2xl font-semibold mb-4">1. Datenschutz auf einen Blick</h2>
+          <h3 class="text-xl font-semibold mb-2">Allgemeine Hinweise</h3>
+          <p>
+            Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit deinen personenbezogenen Daten passiert, wenn du diese Website besuchst. Personenbezogene Daten sind alle Daten, mit denen du persönlich identifiziert werden kannst. Ausführliche Informationen zum Thema Datenschutz entnimmst du dieser Datenschutzerklärung.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-2">Datenerfassung auf dieser Website</h3>
+          <p>
+            <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br />
+            Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten findest du im Abschnitt „Verantwortliche Stelle“ dieser Datenschutzerklärung.
+          </p>
+          <p>
+            <strong>Wie erfassen wir deine Daten?</strong><br />
+            Deine Daten werden zum einen dadurch erhoben, dass du uns diese mitteilst, z. B. durch Eingabe in unser Newsletter-Formular. Andere Daten werden automatisch oder nach deiner Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst, wie technische Daten (z. B. Browser, Betriebssystem, Uhrzeit des Seitenaufrufs).
+          </p>
+          <p>
+            <strong>Wofür nutzen wir deine Daten?</strong><br />
+            Daten werden erhoben, um die Website fehlerfrei bereitzustellen, Nutzerverhalten zu analysieren (bei Einwilligung) und personalisierte Inhalte anzubieten (bei Einwilligung). Daten aus dem Newsletter-Formular dienen der Kontaktaufnahme und Information über unsere Dienste.
+          </p>
+          <p>
+            <strong>Welche Rechte hast du bezüglich deiner Daten?</strong><br />
+            Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch gegen die Verarbeitung deiner personenbezogenen Daten. Kontaktiere uns hierzu unter den angegebenen Kontaktdaten. Du kannst dich auch bei einer Aufsichtsbehörde beschweren.
+          </p>
+
+          <h2 class="text-2xl font-semibold mb-4">2. Verantwortliche Stelle</h2>
+          <p>
+            Verantwortliche Stelle ist:<br />
+            Ma Tchop GmbH<br />
+            Musterstraße 123<br />
+            10115 Berlin<br />
+            Deutschland<br />
+            Telefon: +49 30 12345678<br />
+            E-Mail: <a href="mailto:datenschutz@matchop.de" class="text-primary-green hover:text-green-700">datenschutz@matchop.de</a>
+          </p>
+
+          <h2 class="text-2xl font-semibold mb-4">3. Datenerfassung auf dieser Website</h2>
+          <h3 class="text-xl font-semibold mb-2">Cookies</h3>
+          <p>
+            Unsere Website verwendet Cookies, kleine Textdateien, die auf deinem Gerät gespeichert werden. Notwendige Cookies gewährleisten die Funktionalität der Website. Analyse- und Marketing-Cookies werden nur nach deiner Einwilligung gesetzt, wie in unserem <a href="index.html#cookie-consent" class="text-primary-green hover:text-green-700">Cookie-Banner</a> beschrieben. Du kannst Cookies in deinen Browsereinstellungen deaktivieren, allerdings kann dies die Funktionalität der Website einschränken.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-2">Server-Log-Dateien</h3>
+          <p>
+            Der Provider der Website erhebt und speichert automatisch Informationen in Server-Log-Dateien, die dein Browser übermittelt. Dazu gehören:
+            <ul class="list-disc pl-5">
+              <li>Browsertyp und -version</li>
+              <li>Verwendetes Betriebssystem</li>
+              <li>Referrer-URL</li>
+              <li>Hostname des zugreifenden Rechners</li>
+              <li>Uhrzeit der Serveranfrage</li>
+              <li>IP-Adresse</li>
+            </ul>
+            Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und nach einer statistischen Auswertung innerhalb von 14 Tagen gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technischen Sicherheit der Website).
+          </p>
+
+          <h3 class="text-xl font-semibold mb-2">Newsletter-Formular</h3>
+          <p>
+            Wenn du dich für unseren Newsletter anmeldest, speichern wir deinen Namen und deine E-Mail-Adresse, um dir Informationen über Ma Tchop zu senden. Die Datenverarbeitung basiert auf deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Du kannst diese Einwilligung jederzeit widerrufen, indem du dich über den Abmeldelink im Newsletter oder per E-Mail an <a href="mailto:datenschutz@matchop.de" class="text-primary-green hover:text-green-700">datenschutz@matchop.de</a> abmeldest. Die Daten werden bis zu deinem Widerruf gespeichert.
+          </p>
+
+          <h2 class="text-2xl font-semibold mb-4">4. Analyse-Tools und Werbung</h2>
+          <h3 class="text-xl font-semibold mb-2">Google Analytics</h3>
+          <p>
+            Diese Website nutzt Google Analytics, einen Webanalysedienst der Google Ireland Limited, sofern du im Cookie-Banner zugestimmt hast (Art. 6 Abs. 1 lit. a DSGVO). Google Analytics verwendet Cookies, um Nutzerverhalten zu analysieren. Die erzeugten Informationen (z. B. anonymisierte IP-Adresse) werden an Server von Google in den USA übertragen und dort gespeichert. Google nutzt diese Informationen, um Reports über Website-Aktivitäten zu erstellen. Du kannst die Speicherung der Cookies durch eine entsprechende Einstellung deines Browsers verhindern oder deine Einwilligung im Cookie-Banner widerrufen.
+          </p>
+
+          <h3 class="text-xl font-semibold mb-2">Social-Media-Plugins</h3>
+          <p>
+            Wir verwenden Social-Media-Links (Instagram, LinkedIn), die keine direkten Plugins sind, sondern einfache Verlinkungen. Es werden keine personenbezogenen Daten durch Plugins automatisch an diese Plattformen übermittelt. Beim Klicken auf die Links gelten die Datenschutzbestimmungen der jeweiligen Plattform (z. B. Instagram, LinkedIn).
+          </p>
+
+          <h2 class="text-2xl font-semibold mb-4">5. Deine Rechte</h2>
+          <p>
+            Du hast folgende Rechte bezüglich deiner personenbezogenen Daten gemäß DSGVO:
+            <ul class="list-disc pl-5">
+              <li><strong>Auskunft</strong> (Art. 15): Auskunft über die gespeicherten Daten und deren Verarbeitung.</li>
+              <li><strong>Berichtigung</strong> (Art. 16): Korrektur unrichtiger Daten.</li>
+              <li><strong>Löschung</strong> (Art. 17): Löschung deiner Daten, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.</li>
+              <li><strong>Einschränkung</strong> (Art. 18): Einschränkung der Verarbeitung unter bestimmten Voraussetzungen.</li>
+              <li><strong>Datenübertragbarkeit</strong> (Art. 20): Übermittlung deiner Daten in einem strukturierten Format.</li>
+              <li><strong>Widerspruch</strong> (Art. 21): Widerspruch gegen die Verarbeitung aus berechtigtem Interesse.</li>
+              <li><strong>Beschwerderecht</strong> (Art. 77): Beschwerde bei einer Aufsichtsbehörde, z. B. der Berliner Beauftragte für Datenschutz und Informationsfreiheit.
+            </ul>
+            Für die Ausübung dieser Rechte kontaktiere uns unter: <a href="mailto:datenschutz@matchop.de" class="text-primary-green hover:text-green-700">datenschutz@matchop.de</a>.
+          </p>
+
+          <h2 class="text-2xl font-semibold mb-4">6. Datensicherheit</h2>
+          <p>
+            Wir verwenden technische und organisatorische Maßnahmen, um deine Daten vor unbefugtem Zugriff, Verlust oder Missbrauch zu schützen. Unsere Website nutzt eine SSL-Verschlüsselung (https://) für die sichere Übertragung von Daten. Sensible Daten, wie die im Newsletter-Formular eingegebenen Informationen, werden verschlüsselt gespeichert.
+          </p>
+
+          <h2 class="text-2xl font-semibold mb-4">7. Dritte und Datenweitergabe</h2>
+          <p>
+            Eine Weitergabe deiner Daten an Dritte erfolgt nur, wenn:
+            <ul class="list-disc pl-5">
+              <li>Du deine ausdrückliche Einwilligung gegeben hast (Art. 6 Abs. 1 lit. a DSGVO).</li>
+              <li>Die Weitergabe zur Abwicklung von Verträgen erforderlich ist (Art. 6 Abs. 1 lit. b DSGVO).</li>
+              <li>Eine gesetzliche Verpflichtung besteht (Art. 6 Abs. 1 lit. c DSGVO).</li>
+              <li>Unsere berechtigten Interessen dies erfordern (Art. 6 Abs. 1 lit. f DSGVO), z. B. zur Analyse der Website-Nutzung durch Google Analytics nach deiner Einwilligung.</li>
+            </ul>
+            Externe Dienstleister wie Google (Analytics) oder Formspree (Newsletter-Formular) sind vertraglich verpflichtet, die DSGVO einzuhalten.
+          </p>
+
+          <h2 class="text-2xl font-semibold mb-4">8. Aktualität und Änderung dieser Datenschutzerklärung</h2>
+          <p>
+            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Juli 2025. Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um rechtlichen oder technischen Änderungen zu entsprechen. Die aktuelle Version findest du stets auf dieser Seite.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Links</h4>
+            <ul class="space-y-2">
+              <li><a href="index.html#features" class="text-gray-300 hover:text-primary-green transition">Funktionen</a></li>
+              <li><a href="index.html#partners" class="text-gray-300 hover:text-primary-green transition">Partner</a></li>
+              <li><a href="index.html#newsletter" class="text-gray-300 hover:text-primary-green transition">Kontakt</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontakt & Social</h4>
+            <ul class="space-y-2">
+              <li><a href="mailto:Matchop@web.de" class="text-gray-300 hover:text-primary-green transition">Matchop@web.de</a></li>
+              <li><a href="https://www.instagram.com/matchop___/?igsh=eHdkbWJneGxmNXph&utm_source=qr" target="_blank" class="text-gray-300 hover:text-primary-green transition">Instagram</a></li>
+              <li><a href="#" target="_blank" class="text-gray-300 hover:text-primary-green transition">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Rechtliches</h4>
+            <ul class="space-y-2">
+              <li><a href="impressum.html" class="text-gray-300 hover:text-primary-green transition">Impressum</a></li>
+              <li><a href="datenschutz.html" class="text-gray-300 hover:text-primary-green transition">Datenschutz</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8 text-center text-gray-300">
+          &copy; 2025 Ma Tchop. Alle Rechte vorbehalten.
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

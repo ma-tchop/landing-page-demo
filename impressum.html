@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Impressum – Ma Tchop</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  </head>
+  <body class="bg-white font-sans antialiased overflow-x-hidden">
+    <!-- Header / Navigation -->
+    <header class="bg-gray-900 bg-opacity-90 backdrop-blur-md fixed w-full z-50 transition-all duration-300">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-white text-2xl font-bold tracking-tight">Ma Tchop</a>
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.html#features" class="text-white text-sm hover:text-primary-green transition">Funktionen</a>
+          <a href="index.html#partners" class="text-white text-sm hover:text-primary-green transition">Partner</a>
+          <a href="index.html#testimonials" class="text-white text-sm hover:text-primary-green transition">Erfahrungsberichte</a>
+          <a href="index.html#newsletter" class="text-white text-sm hover:text-primary-green transition">Tester*in werden</a>
+        </nav>
+        <button class="md:hidden text-white focus:outline-none" id="menu-toggle">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-95 w-full absolute top-full left-0 py-4">
+        <nav class="flex flex-col items-center space-y-4">
+          <a href="index.html#features" class="text-white text-sm hover:text-primary-green transition">Funktionen</a>
+          <a href="index.html#partners" class="text-white text-sm hover:text-primary-green transition">Partner</a>
+          <a href="index.html#testimonials" class="text-white text-sm hover:text-primary-green transition">Erfahrungsberichte</a>
+          <a href="index.html#newsletter" class="text-white text-sm hover:text-primary-green transition">Tester*in werden</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Impressum Content -->
+    <section class="py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8 animate-fade-in">Impressum</h1>
+        <div class="prose max-w-3xl mx-auto text-gray-700">
+          <h2 class="text-2xl font-semibold mb-4">Angaben gemäß § 5 TMG</h2>
+          <p>
+            Ma Tchop GmbH<br />
+            Musterstraße 123<br />
+            10115 Berlin<br />
+            Deutschland
+          </p>
+          <p>
+            <strong>Vertreten durch:</strong><br />
+            Max Mustermann (Geschäftsführer)
+          </p>
+          <p>
+            <strong>Kontakt:</strong><br />
+            Telefon: +49 30 12345678<br />
+            E-Mail: <a href="mailto:info@matchop.de" class="text-primary-green hover:text-green-700">info@matchop.de</a>
+          </p>
+          <p>
+            <strong>Registereintrag:</strong><br />
+            Eintragung im Handelsregister<br />
+            Registergericht: Amtsgericht Berlin<br />
+            Registernummer: HRB 123456
+          </p>
+          <p>
+            <strong>Umsatzsteuer-ID:</strong><br />
+            Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz: DE123456789
+          </p>
+          <p>
+            <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
+            Max Mustermann<br />
+            Musterstraße 123<br />
+            10115 Berlin
+          </p>
+          <p>
+            <strong>Haftungshinweis:</strong><br />
+            Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Links</h4>
+            <ul class="space-y-2">
+              <li><a href="index.html#features" class="text-gray-300 hover:text-primary-green transition">Funktionen</a></li>
+              <li><a href="index.html#partners" class="text-gray-300 hover:text-primary-green transition">Partner</a></li>
+              <li><a href="index.html#newsletter" class="text-gray-300 hover:text-primary-green transition">Kontakt</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Kontakt & Social</h4>
+            <ul class="space-y-2">
+              <li><a href="mailto:Matchop@web.de" class="text-gray-300 hover:text-primary-green transition">Matchop@web.de</a></li>
+              <li><a href="https://www.instagram.com/matchop___/?igsh=eHdkbWJneGxmNXph&utm_source=qr" target="_blank" class="text-gray-300 hover:text-primary-green transition">Instagram</a></li>
+              <li><a href="#" target="_blank" class="text-gray-300 hover:text-primary-green transition">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Rechtliches</h4>
+            <ul class="space-y-2">
+              <li><a href="impressum.html" class="text-gray-300 hover:text-primary-green transition">Impressum</a></li>
+              <li><a href="datenschutz.html" class="text-gray-300 hover:text-primary-green transition">Datenschutz</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8 text-center text-gray-300">
+          &copy; 2025 Ma Tchop. Alle Rechte vorbehalten.
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
