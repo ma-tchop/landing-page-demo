@@ -201,41 +201,26 @@
       </header>
     </section>
 
-    <!-- Hero Section with Video Background -->
-    <section
-      class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
+<section class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
       <img src="assets/img/h5.jpg" alt="Hero Background" class="absolute inset-0 object-cover w-full h-full">
-      <div class="absolute inset-0 bg-black bg-opacity-60"></div>
-      
-      <div class="grid grid-cols-2 gap-4 relative z-10 hero-content-container">
+  <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+  <div class="grid gap-4 relative z-10 hero-content-container">
         <div class="container mx-auto px-4 text-center relative z-10 place-content-center grid-area: header hero-content">
-            <h1
-              class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 animate-fade-in"
-            >
+      <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 animate-fade-in">
               Revolutioniere deinen Einkauf mit Ma Tchop
             </h1>
-            <p
-              class="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto"
-            >
-              Dein KI-gestützter Begleiter für nachhaltiges Einkaufen, gesunde
-              Ernährung und CO₂-Reduktion.
+      <p class="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">
+        Dein KI-gestützter Begleiter für nachhaltiges Einkaufen, gesunde Ernährung und CO₂-Reduktion.
             </p>
-          <div class="space-x-4">
-            <button
-              class="bg-primary-green text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition transform hover:scale-105"
-            >
-              Teste Ma Tchop
-            </button>
-            <button
-              class="bg-gray-700 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-600 transition transform hover:scale-105"
-            >
-              Erfahre mehr
-            </button>
+      <!-- Circular Border-Only Button and Extended Scroll Indicator Line -->
+      <div class="flex flex-col items-center mb-8 relative">
+        <a href="#tansition" class="flex items-center justify-center w-16 h-16 border-2 border-green-400 text-white font-semibold rounded-full hover:border-green-500 transition duration-300 mb-2 z-20" onclick="event.preventDefault(); var nachhaltigkeit = document.querySelector('#nachhaltigkeit'); window.scrollTo({ top: nachhaltigkeit.offsetTop - 100, behavior: 'smooth' });">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </a>
           </div>
         </div>
-        <canvas id="chart-container-waste" class="w-full max-w-md mx-auto grid-area: graph hero-graph" style="max-height: 500px;"></canvas>
-          
-        </canvas>
       </div>
     </section>
 
