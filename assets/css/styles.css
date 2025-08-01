@@ -152,6 +152,32 @@ body {
   color: var(--primary-green);
 }
 
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce-custom {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-bounce-custom {
+  animation: bounce-custom 2s ease-in-out infinite;
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {

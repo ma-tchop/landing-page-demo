@@ -1,112 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // chart initialization code here
-    const ctx = document.getElementById("mission-chart").getContext("2d");
+
+document.addEventListener('DOMContentLoaded', () => {
+  const ctx = document.getElementById('emissions-chart').getContext('2d');
     new Chart(ctx, {
-      type: "bar",
+    type: 'line',
       data: {
-        labels: ["2023", "2024", "2025"],
-        datasets: [
-          {
-            label: "CO₂-Einsparung (Tonnen)",
-            data: [500, 800, 1200],
-            backgroundColor: ["#07A119", "#07A119", "#07A119"],
-            borderColor: ["#058614", "#058614", "#058614"],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        animation: { duration: 2000, easing: "easeOutBounce" },
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: "CO₂-Einsparung (t)" },
-          },
-          x: { title: { display: true, text: "Jahr" } },
-        },
-        plugins: { legend: { display: false } },
-      },
-    });
-
-    
-// Get the canvas element
-const ctxWaste = document.getElementById('chart-container-waste').getContext('2d');
-
-// Create the bar chart
-new Chart(ctxWaste, {
-  type: 'bar',
-  data: {
-    labels: ['Lebensmittel', 'Transport', 'Verpackung', 'Energie'],
+      labels: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
     datasets: [{
-      label: 'CO₂-Emissionen (kg CO₂e)',
-      data: [120, 80, 50, 30],
-      backgroundColor: [
-        'rgba(34, 197, 94, 0.6)',  // Green
-        'rgba(74, 222, 128, 0.6)',
-        'rgba(134, 239, 172, 0.6)',
-        'rgba(187, 247, 208, 0.6)'
-      ],
-      borderColor: [
-        'rgba(34, 197, 94, 1)',
-        'rgba(74, 222, 128, 1)',
-        'rgba(134, 239, 172, 1)',
-        'rgba(187, 247, 208, 1)'
-      ],
-      borderWidth: 1
+        label: 'CO₂ Emissions (kg per capita)',
+        data: [500, 480, 450, 420, 390, 360, 330, 300],
+        borderColor: '#34D399',
+        backgroundColor: 'rgba(52, 211, 153, 0.2)',
+        fill: true,
+        tension: 0.4,
     }]
   },
   options: {
     responsive: true,
-    maintainAspectRatio: false, // Set to false to allow the chart to fill the canvas height
     plugins: {
-      legend: {
-        labels: {
-          color: 'white',
-          font: {
-            size: 14
-          }
-        }
-      },
+        legend: { display: true, position: 'top', labels: { color: '#fff' } },
       title: {
         display: true,
-        text: 'CO₂-Fußabdruck nach Kategorie',
-        color: 'white',
-        font: {
-          size: 18,
-          weight: 'bold'
-        },
-        padding: {
-          top: 10,
-          bottom: 20
-        }
+          text: 'Reduction in Carbon Emissions Over Time',
+          color: '#fff',
+          font: { size: 18 }
       }
     },
     scales: {
+        x: { ticks: { color: '#fff' } },
       y: {
-        beginAtZero: true,
-        ticks: {
-          color: 'white',
-          font: {
-            size: 12
-          }
-        },
-        grid: {
-          color: 'rgba(255, 255, 255, 0.1)'
-        }
-      },
-      x: {
-        ticks: {
-          color: 'white',
-          font: {
-            size: 12
-          }
-        },
-        grid: {
-          display: false
-        }
+          beginAtZero: false,
+          ticks: { color: '#fff' },
+          title: { display: true, text: 'CO₂ Emissions (kg)', color: '#fff' }
       }
     }
   }
 });
 });
+
+    
 

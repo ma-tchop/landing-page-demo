@@ -13,6 +13,19 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power2.out",
   });
 
+  gsap.from(".chart-container", {
+    scrollTrigger: {
+      trigger: "#nachhaltigkeit .chart-container",
+      start: "top 80%",
+      toggleActions: "play none none reset",
+    },
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    ease: "power2.out",
+  });
+
+  // Existing animations for other sections
   gsap.from(".demo-card", {
     scrollTrigger: {
       trigger: "#demo",
@@ -45,15 +58,4 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power2.out",
     delay: 0.5,
   });
-
-  gsap.from(".chart-container", {
-    scrollTrigger: {
-      trigger: "#mission",
-      start: "top 80%",
-      toggleActions: "play none none reset",
-    },
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    ease: "power2.out",
-  });});
+});
