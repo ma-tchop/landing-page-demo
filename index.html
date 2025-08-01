@@ -416,52 +416,32 @@
       </div>
     </section>
 
-    <!-- Product Demo Section -->
-    <section id="demo" class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <h2
-          class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12"
-        >
+
+
+  <section id="demo" class="bg-white py-16 relative overflow-hidden" style="height: 100vh;">
+    <div class="container mx-auto px-4 h-full flex flex-col justify-center items-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 z-10">
           Entdecke Ma Tchop in Aktion
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
-          >
-            <img
-              src="assets/img/screenshot1.jpg"
-              alt="Dashboard"
-              class="w-full h-64 object-cover rounded mb-4"
-            />
-            <p class="text-gray-600 text-center">
-              Interaktives Dashboard für deine Vorräte.
-            </p>
+      <div id="demo-cards-wrapper" class="relative w-full max-w-xl h-96 mx-auto">
+        <div class="demo-card absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-center opacity-100 transition-opacity duration-700" data-index="0">
+          <img src="assets/img/screenshot1.jpg" alt="Dashboard" class="w-full h-64 object-cover rounded mb-4" />
+          <p class="text-gray-600 text-center">Interaktives Dashboard für deine Vorräte.</p>
           </div>
-          <div
-            class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
-          >
-            <img
-              src="assets/img/screenshot2.jpg"
-              alt="Rezeptvorschläge"
-              class="w-full h-64 object-cover rounded mb-4"
-            />
-            <p class="text-gray-600 text-center">
-              Personalisierte Rezepte für deine Ziele.
-            </p>
+        <div class="demo-card absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-center opacity-0 transition-opacity duration-700" data-index="1">
+          <img src="assets/img/screenshot2.jpg" alt="Rezeptvorschläge" class="w-full h-64 object-cover rounded mb-4" />
+          <p class="text-gray-600 text-center">Personalisierte Rezepte für deine Ziele.</p>
           </div>
-          <div
-            class="demo-card bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition"
-          >
-            <img
-              src="assets/img/screenshot3.jpg"
-              alt="CO2 Tracking"
-              class="w-full h-64 object-cover rounded mb-4"
-            />
-            <p class="text-gray-600 text-center">
-              Verfolge deinen CO₂-Fußabdruck in Echtzeit.
-            </p>
-          </div>
+        <div class="demo-card absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-center opacity-0 transition-opacity duration-700" data-index="2">
+          <img src="assets/img/screenshot3.jpg" alt="CO2 Tracking" class="w-full h-64 object-cover rounded mb-4" />
+          <p class="text-gray-600 text-center">Verfolge deinen CO₂-Fußabdruck in Echtzeit.</p>
         </div>
+      </div>
+      <!-- <div class="mt-8 flex justify-center space-x-2 z-10">
+        <button class="w-3 h-3 rounded-full bg-gray-300" data-dot="0"></button>
+        <button class="w-3 h-3 rounded-full bg-gray-300" data-dot="1"></button>
+        <button class="w-3 h-3 rounded-full bg-gray-300" data-dot="2"></button>
+      </div> -->
       </div>
     </section>
 
@@ -646,5 +626,66 @@
         </div>
       </div>
     </footer>
+
+    <script>
+    // filepath: e:\Nextcloud_Documents\_Entwicklung\MaTchop\landing-page\index.html
+    // ...existing code...
+    document.addEventListener("DOMContentLoaded", () => {
+      // ...existing code...
+
+      // --- DEMO SECTION PIN & SCROLL EFFECT ---
+      if (window.gsap && window.ScrollTrigger) {
+        const cards = gsap.utils.toArray("#demo .demo-card");
+        gsap.set(cards, { opacity: 0, zIndex: 1 });
+        gsap.set(cards[0], { opacity: 1, zIndex: 2 });
+
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#demo",
+            start: "top top",
+            end: "+=" + (cards.length * 100) + "%",
+            scrub: true,
+            pin: true,
+            anticipatePin: 1,
+          }
+        });
+
+        cards.forEach((card, i) => {
+          if (i > 0) {
+            tl.to(cards[i - 1], { opacity: 0, zIndex: 1, duration: 0.3 }, "+=0.7")
+              .to(card, { opacity: 1, zIndex: 2, duration: 0.3 }, "<");
+          }
+        });
+
+        // Dots navigation (optional: sync with GSAP)
+        const dots = document.querySelectorAll("#demo [data-dot]");
+        function updateDots(idx) {
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("bg-primary-green", i === idx);
+            dot.classList.toggle("bg-gray-300", i !== idx);
+          });
+        }
+        updateDots(0);
+
+        tl.eventCallback("onUpdate", () => {
+          const progress = tl.progress();
+          const idx = Math.round(progress * (cards.length - 1));
+          updateDots(idx);
+        });
+
+        dots.forEach((dot, i) => {
+          dot.addEventListener("click", () => {
+            const st = ScrollTrigger.getById("demo-pin");
+            if (st) {
+              const total = cards.length - 1;
+              const scrollTo = st.start + (st.end - st.start) * (i / total);
+              gsap.to(window, { scrollTo: scrollTo, duration: 0.7 });
+            }
+          });
+        });
+      }
+    });
+    </script>
+
   </body>
 </html>
