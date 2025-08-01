@@ -202,16 +202,16 @@
     </section>
 
 <section class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
-      <img src="assets/img/h5.jpg" alt="Hero Background" class="absolute inset-0 object-cover w-full h-full">
+  <img src="assets/img/h5.jpg" alt="Hero Background" class="absolute inset-0 object-cover w-full h-full">
   <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
   <div class="grid gap-4 relative z-10 hero-content-container">
-        <div class="container mx-auto px-4 text-center relative z-10 place-content-center grid-area: header hero-content">
+    <div class="container mx-auto px-4 text-center relative z-10 place-content-center grid-area: header hero-content">
       <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 animate-fade-in">
-              Revolutioniere deinen Einkauf mit Ma Tchop
-            </h1>
+        Revolutioniere deinen Einkauf mit Ma Tchop
+      </h1>
       <p class="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">
         Dein KI-gestützter Begleiter für nachhaltiges Einkaufen, gesunde Ernährung und CO₂-Reduktion.
-            </p>
+      </p>
       <!-- Circular Border-Only Button and Extended Scroll Indicator Line -->
       <div class="flex flex-col items-center mb-8 relative">
         <a href="#tansition" class="flex items-center justify-center w-16 h-16 border-2 border-green-400 text-white font-semibold rounded-full hover:border-green-500 transition duration-300 mb-2 z-20" onclick="event.preventDefault(); var nachhaltigkeit = document.querySelector('#nachhaltigkeit'); window.scrollTo({ top: nachhaltigkeit.offsetTop - 100, behavior: 'smooth' });">
@@ -219,10 +219,10 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
         </a>
-          </div>
-        </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
         <!-- Transition Section -->
     <div id ="transition" class="relative bg-gradient-to-b from-black to-green-900 py-8 overflow-hidden">
@@ -293,145 +293,101 @@
       <div class="chart-container max-w-3xl mx-auto mb-16">
         <canvas id="emissions-chart"></canvas>
       </div>
-    </section>
+  </section>
 
-    <!-- Features Section with Interactive Cards -->
-    <section id="features" class="py-16 bg-gray-100">
-      <div class="container mx-auto px-4">
-        <h2
-          class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12"
-        >
+  <section id="features" class="relative py-20 bg-gradient-to-b from-gray-50 to-gray-200 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="parallax-bg h-full w-full bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20"></div>
+    </div>
+    <div class="container mx-auto px-6 relative z-10">
+      <!-- Heading -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
           Warum Ma Tchop die Zukunft ist
         </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
-          >
-            <img
-              src="img/feature-inventory.png"
-              alt="Inventory Manager"
-              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
-            />
-            <h3 class="text-xl font-semibold text-gray-900 text-center">
-              360° AI-Bestandsmanager
-            </h3>
-            <p class="text-gray-600 text-center">
-              Verabschiede dich von abgelaufenen Lebensmitteln. Ma Tchop
-              überwacht deine Vorräte automatisch.
-            </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
-          >
-            <img
-              src="img/feature-order.png"
-              alt="Automatic Ordering"
-              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
-            />
-            <h3 class="text-xl font-semibold text-gray-900 text-center">
-              Automatisches Bestellen
-            </h3>
-            <p class="text-gray-600 text-center">
-              KI erkennt knappe Produkte und bestellt mit einem Klick über
-              lokale Lieferdienste.
-            </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
-          >
-            <img
-              src="img/feature-nutrition.png"
-              alt="Nutrition Analysis"
-              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
-            />
-            <h3 class="text-xl font-semibold text-gray-900 text-center">
-              Persönliche Ernährungsanalyse
-            </h3>
-            <p class="text-gray-600 text-center">
-              Ma Tchop schlägt Rezepte passend zu deinen Zielen und Vorräten
-              vor.
-            </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
-          >
-            <img
-              src="img/feature-co2.png"
-              alt="CO2 Tracking"
-              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
-            />
-            <h3 class="text-xl font-semibold text-gray-900 text-center">
-              CO₂-Footprint-Tracking
-            </h3>
-            <p class="text-gray-600 text-center">
-              Jeder Einkauf wird auf Klima-Impact geprüft, um CO₂ zu sparen.
-            </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
-          >
-            <img
-              src="img/feature-sharing.png"
-              alt="Sharing Function"
-              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
-            />
-            <h3 class="text-xl font-semibold text-gray-900 text-center">
-              Spenden- & Sharing-Funktion
-            </h3>
-            <p class="text-gray-600 text-center">
-              Teile überschüssige Lebensmittel mit Foodbanks oder Nachbarn.
-            </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
-          >
-            <img
-              src="img/feature-market.png"
-              alt="Local Market"
-              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
-            />
-            <h3 class="text-xl font-semibold text-gray-900 text-center">
-              Regionale Bauern-Marktplatz
-            </h3>
-            <p class="text-gray-600 text-center">
-              Kaufe frische Produkte direkt vom Hof in deiner Nähe.
-            </p>
-          </div>
-          <div
-            class="feature-card bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-2"
-          >
-            <img
-              src="img/feature-community.png"
-              alt="Community"
-              class="h-16 w-16 object-cover rounded mb-4 mx-auto"
-            />
-            <h3 class="text-xl font-semibold text-gray-900 text-center">
-              Gamification & Community
-            </h3>
-            <p class="text-gray-600 text-center">
-              Erfülle Challenges, sammle Punkte und tausche dich aus.
-            </p>
-          </div>
+        <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+          Entdecken Sie innovative Funktionen, die Nachhaltigkeit und Effizienz in Ihren Alltag bringen.
+        </p>
+      </div>
+
+      <!-- Feature Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="feature-card relative bg-white p-8 rounded-xl shadow-xl transition-all duration-500 group">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-xl"></div>
+          <img src="img/feature-inventory.png" alt="Inventory Manager" class="h-20 w-20 object-cover rounded-lg mb-6 mx-auto" />
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">360° AI-Bestandsmanager</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Verabschiede dich von abgelaufenen Lebensmitteln. Ma Tchop überwacht deine Vorräte automatisch.
+          </p>
+        </div>
+        <div class="feature-card relative bg-white p-8 rounded-xl shadow-xl transition-all duration-500 group">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-xl"></div>
+          <img src="img/feature-order.png" alt="Automatic Ordering" class="h-20 w-20 object-cover rounded-lg mb-6 mx-auto" />
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Automatisches Bestellen</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            KI erkennt knappe Produkte und bestellt mit einem Klick über lokale Lieferdienste.
+          </p>
+        </div>
+        <div class="feature-card relative bg-white p-8 rounded-xl shadow-xl transition-all duration-500 group">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-xl"></div>
+          <img src="img/feature-nutrition.png" alt="Nutrition Analysis" class="h-20 w-20 object-cover rounded-lg mb-6 mx-auto" />
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Persönliche Ernährungsanalyse</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Ma Tchop schlägt Rezepte passend zu deinen Zielen und Vorräten vor.
+          </p>
+        </div>
+        <div class="feature-card relative bg-white p-8 rounded-xl shadow-xl transition-all duration-500 group">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-xl"></div>
+          <img src="img/feature-co2.png" alt="CO2 Tracking" class="h-20 w-20 object-cover rounded-lg mb-6 mx-auto" />
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">CO₂-Footprint-Tracking</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Jeder Einkauf wird auf Klima-Impact geprüft, um CO₂ zu sparen.
+          </p>
+        </div>
+        <div class="feature-card relative bg-white p-8 rounded-xl shadow-xl transition-all duration-500 group">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-xl"></div>
+          <img src="img/feature-sharing.png" alt="Sharing Function" class="h-20 w-20 object-cover rounded-lg mb-6 mx-auto" />
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Spenden- & Sharing-Funktion</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Teile überschüssige Lebensmittel mit Foodbanks oder Nachbarn.
+          </p>
+        </div>
+        <div class="feature-card relative bg-white p-8 rounded-xl shadow-xl transition-all duration-500 group">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-xl"></div>
+          <img src="img/feature-market.png" alt="Local Market" class="h-20 w-20 object-cover rounded-lg mb-6 mx-auto" />
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Regionale Bauern-Marktplatz</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Kaufe frische Produkte direkt vom Hof in deiner Nähe.
+          </p>
+        </div>
+        <div class="feature-card relative bg-white p-8 rounded-xl shadow-xl transition-all duration-500 group">
+          <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-xl"></div>
+          <img src="img/feature-community.png" alt="Community" class="h-20 w-20 object-cover rounded-lg mb-6 mx-auto" />
+          <h3 class="text-2xl font-bold text-gray-900 text-center mb-4">Gamification & Community</h3>
+          <p class="text-gray-600 text-center leading-relaxed">
+            Erfülle Challenges, sammle Punkte und tausche dich aus.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
 
 
   <section id="demo" class="bg-white py-16 relative overflow-hidden" style="height: 100vh;">
     <div class="container mx-auto px-4 h-full flex flex-col justify-center items-center">
       <h2 class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 z-10">
-          Entdecke Ma Tchop in Aktion
-        </h2>
+        Entdecke Ma Tchop in Aktion
+      </h2>
       <div id="demo-cards-wrapper" class="relative w-full max-w-xl h-96 mx-auto">
         <div class="demo-card absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-center opacity-100 transition-opacity duration-700" data-index="0">
           <img src="assets/img/screenshot1.jpg" alt="Dashboard" class="w-full h-64 object-cover rounded mb-4" />
           <p class="text-gray-600 text-center">Interaktives Dashboard für deine Vorräte.</p>
-          </div>
+        </div>
         <div class="demo-card absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-center opacity-0 transition-opacity duration-700" data-index="1">
           <img src="assets/img/screenshot2.jpg" alt="Rezeptvorschläge" class="w-full h-64 object-cover rounded mb-4" />
           <p class="text-gray-600 text-center">Personalisierte Rezepte für deine Ziele.</p>
-          </div>
+        </div>
         <div class="demo-card absolute inset-0 bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center justify-center opacity-0 transition-opacity duration-700" data-index="2">
           <img src="assets/img/screenshot3.jpg" alt="CO2 Tracking" class="w-full h-64 object-cover rounded mb-4" />
           <p class="text-gray-600 text-center">Verfolge deinen CO₂-Fußabdruck in Echtzeit.</p>
@@ -442,8 +398,8 @@
         <button class="w-3 h-3 rounded-full bg-gray-300" data-dot="1"></button>
         <button class="w-3 h-3 rounded-full bg-gray-300" data-dot="2"></button>
       </div> -->
-      </div>
-    </section>
+    </div>
+  </section>
 
     <!-- Testimonials Section with Avatars -->
     <section id="testimonials" class="py-16 bg-gray-100">
