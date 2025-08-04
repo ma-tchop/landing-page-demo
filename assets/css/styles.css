@@ -16,6 +16,10 @@ body {
   overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .animate-fade-in {
   animation: fadeIn 1.5s ease-in-out;
 }
@@ -81,25 +85,6 @@ body {
 @keyframes particleMove {
   0% { background-position: 0 0; }
   100% { background-position: 100px 100px; }
-}
-
-/* Feature Card 3D Tilt */
-.feature-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  perspective: 1000px;
-}
-
-.feature-card:hover {
-  transform: translateY(-8px) rotateX(5deg) rotateY(5deg);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.feature-card img {
-  transition: transform 0.3s ease;
-}
-
-.feature-card img:hover {
-  transform: scale(1.1);
 }
 
 /* Demo Card */
@@ -178,21 +163,9 @@ body {
 .animate-bounce-custom {
   animation: bounce-custom 2s ease-in-out infinite;
 }
-
-/* Mobile Responsiveness */
-@media (max-width: 1024px) {
-  .hero-content-container {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "graph";
-  }
-  .hero-graph {
-    margin-top: 4rem;
-  }
-  .hero-content{
-    margin-top: 6rem;
-  }
+#demo {
+  height: 100;
+  background: linear-gradient(to top,#07A119, black);
 }
 
 @media (max-width: 640px) {

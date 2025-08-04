@@ -1,0 +1,106 @@
+.h2-text {
+   font-size: 1.875rem; /* 3xl */
+  font-size: 2.25rem; /* sm: 4xl */
+  font-weight: bold;
+  text-align: center;
+  color: #1f2937; /* gray-900 */
+  margin-bottom: 4rem;
+}
+
+.feature-container{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+}
+
+/* Container for stacked cards */
+#card-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+/* Base styling for each card */
+.feature-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 50px));
+  width: 100%;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Active card visible */
+.feature-card.active {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* Gradient hover effect */
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #22c55e, #14b8a6);
+  opacity: 0;
+  border-radius: 1rem;
+  transition: opacity 0.5s;
+  z-index: 0;
+} */
+
+.feature-card:hover::before {
+  opacity: 0.1;
+}
+
+/* Ensure content is above the gradient */
+.feature-card > * {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+/* Image styling */
+.feature-card img {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* Title */
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph */
+.feature-card p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+#iphone-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  transform: translateY(-80px);
+}
+
+#iphone-canvas {
+    max-height: 80vh;
+    
+}
+
