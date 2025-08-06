@@ -11,7 +11,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/feature_section.css" />
+    <link rel="stylesheet" href="assets/css/feature.css" />
+    <link rel="stylesheet" href="assets/css/hero.css" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
@@ -22,7 +24,7 @@
     <script src="assets/js/cookies.js"></script>
     <script src="assets/js/newsletter.js"></script>
     <script src="assets/js/mobile-view.js"></script>
-    <script src="assets/js/IphoneScrollAnimation.js"></script>
+    <script src="assets/js/IphoneAnimation.js"></script>
   
   </head>
   <body class="bg-white font-sans antialiased overflow-x-hidden">
@@ -201,197 +203,195 @@
         </div>
       </header>
 
-    <section class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
-      <img src="assets/img/h5.jpg" alt="Hero Background" class="absolute inset-0 object-cover w-full h-full">
-      <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-      <div class="grid gap-4 relative z-10 hero-content-container">
-        <div class="container mx-auto px-4 text-center relative z-10 place-content-center grid-area: header hero-content">
-          <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6 animate-fade-in">
-            Revolutioniere deinen Einkauf mit Ma Tchop
-          </h1>
-          <p class="text-lg sm:text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">
-            Dein KI-gestützter Begleiter für nachhaltiges Einkaufen, gesunde Ernährung und CO₂-Reduktion.
-          </p>
-          <!-- Circular Border-Only Button and Extended Scroll Indicator Line -->
-          <div class="flex flex-col items-center mb-8 relative">
-            <a href="#tansition" class="flex items-center justify-center w-16 h-16 border-2 border-green-400 text-white font-semibold rounded-full hover:border-green-500 transition duration-300 mb-2 z-20" onclick="event.preventDefault(); var nachhaltigkeit = document.querySelector('#nachhaltigkeit'); window.scrollTo({ top: nachhaltigkeit.offsetTop - 100, behavior: 'smooth' });">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-            </a>
+      <section class="hero">
+        <img src="assets/img/h5.jpg" alt="Hero Background" class="hero-bg">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-container">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Revolutioniere deinen Einkauf mit Ma Tchop
+            </h1>
+            <p class="hero-subtitle">
+              Dein KI-gestützter Begleiter für nachhaltiges Einkaufen, gesunde Ernährung und CO₂-Reduktion.
+            </p>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <a href="#transition" class="scroll-button" onclick="event.preventDefault(); var nachhaltigkeit = document.querySelector('#nachhaltigkeit'); window.scrollTo({ top: nachhaltigkeit.offsetTop - 100, behavior: 'smooth' });">
+            <svg class="scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+        <!-- Transition Section -->
+    <div id ="transition" class="relative bg-gradient-to-b from-black to-green-900 py-8 overflow-hidden">
+      <!-- Wave Divider -->
+      <svg class="absolute top-0 w-full h-12 text-black" preserveAspectRatio="none" viewBox="0 0 1440 54">
+        <path
+          fill="currentColor"
+          d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+        ></path>
+      </svg>
+      <!-- Optional Decorative Element -->
+      <div class="container mx-auto px-4 text-center">
+        <div class="flex justify-center items-center space-x-4">
+          <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+
+          <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+        </div>
+      </div>
+      <!-- Bottom Wave Divider -->
+      <svg class="absolute bottom-0 w-full h-12 text-green-900" preserveAspectRatio="none" viewBox="0 0 1440 54">
+        <path
+          fill="currentColor"
+          d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,54L1392,54C1344,54,1248,54,1152,54C1056,54,960,54,864,54C768,54,672,54,576,54C480,54,384,54,288,54C192,54,96,54,48,54L0,54Z"
+        ></path>
+      </svg>
+    </div>
+
+  <section id="nachhaltigkeit" class="py-16 bg-gradient-to-b from-green-900 to-black text-white">
+    <div class="container mx-auto px-4">
+      <!-- Heading and Subheading -->
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+          Unsere Mission: Die Nachhaltigkeit neu definieren
+        </h2>
+        <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+          Ma Tchop setzt künstliche Intelligenz ein, um Lebensmittelverschwendung zu reduzieren, regionale Produkte zu fördern und Ihren CO₂-Fußabdruck zu minimieren.
+        </p>
+      </div>
+
+      <!-- Seedling Image and Icons -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
+        <!-- Seedling Image
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samenling, der Wachstum symbolisiert" class="w-64 h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+          <div class="absolute -bottom-4 -right-4 bg-green-500 text-white text-sm px-3 py-1 rounded-full">Wachstum</div>
+        </div> -->
+        <!-- Key Concepts with Icons -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="flex flex-col items-center text-center">
+            <i class="fas fa-leaf text-3xl text-green-400 mb-2"></i>
+            <h3 class="text-xl font-semibold">Weniger Verschwendung</h3>
+            <p class="text-sm opacity-80">AI-gestützte Lösungen, um Lebensmittelverschwendung zu minimieren.</p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <i class="fas fa-carrot text-3xl text-green-400 mb-2"></i>
+            <h3 class="text-xl font-semibold">Regionale Produkte</h3>
+            <p class="text-sm opacity-80">Unterstützen Sie regionale Landwirte und Produzenten.</p>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <i class="fas fa-cloud text-3xl text-green-400 mb-2"></i>
+            <h3 class="text-xl font-semibold">Geringere Emissionen</h3>
+            <p class="text-sm opacity-80">Tracken und reduzieren Sie Ihren CO₂-Fußabdruck.</p>
           </div>
         </div>
       </div>
-    </section>
 
-            <!-- Transition Section -->
-        <div id ="transition" class="relative bg-gradient-to-b from-black to-green-900 py-8 overflow-hidden">
-          <!-- Wave Divider -->
-          <svg class="absolute top-0 w-full h-12 text-black" preserveAspectRatio="none" viewBox="0 0 1440 54">
-            <path
-              fill="currentColor"
-              d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-            ></path>
-          </svg>
-          <!-- Optional Decorative Element -->
-          <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center space-x-4">
-              <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+      <!-- Carbon Emissions Graph -->
+      <div class="chart-container max-w-3xl mx-auto mb-16">
+        <canvas id="emissions-chart"></canvas>
+      </div>
+  </section>
 
-              <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
-            </div>
+           <!-- Transition Section -->
+      <div id ="transition" class="relative bg-gradient-to-b from-black to-gray-100 py-8 overflow-hidden">
+        <!-- Wave Divider -->
+        <svg class="absolute top-0 w-full h-12 text-black" preserveAspectRatio="none" viewBox="0 0 1440 54">
+          <path
+            fill="currentColor"
+            d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+          ></path>
+        </svg>
+        <!-- Optional Decorative Element -->
+        <div class="container mx-auto px-4 text-center">
+          <div class="flex justify-center items-center space-x-4">
+            <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+
+            <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
           </div>
-          <!-- Bottom Wave Divider -->
-          <svg class="absolute bottom-0 w-full h-12 text-green-900" preserveAspectRatio="none" viewBox="0 0 1440 54">
-            <path
-              fill="currentColor"
-              d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,54L1392,54C1344,54,1248,54,1152,54C1056,54,960,54,864,54C768,54,672,54,576,54C480,54,384,54,288,54C192,54,96,54,48,54L0,54Z"
-            ></path>
-          </svg>
         </div>
-
-      <section id="nachhaltigkeit" class="py-16 bg-gradient-to-b from-green-900 to-black text-white">
-        <div class="container mx-auto px-4">
-          <!-- Heading and Subheading -->
-          <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
-                Von der Vision zur Lösung
-            </h2>
-            <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
-              Ma Tchop setzt künstliche Intelligenz ein, um Lebensmittelverschwendung zu reduzieren, regionale Produkte zu fördern und Ihren CO₂-Fußabdruck zu minimieren.
-            </p>
-          </div>
-
-          <!-- Seedling Image and Icons -->
-          <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
-            <!-- Seedling Image
-            <div class="relative">
-              <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samenling, der Wachstum symbolisiert" class="w-64 h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <div class="absolute -bottom-4 -right-4 bg-green-500 text-white text-sm px-3 py-1 rounded-full">Wachstum</div>
-            </div> -->
-            <!-- Key Concepts with Icons -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div class="flex flex-col items-center text-center">
-                <i class="fas fa-leaf text-3xl text-green-400 mb-2"></i>
-                <h3 class="text-xl font-semibold">Weniger Verschwendung</h3>
-                <p class="text-sm opacity-80">AI-gestützte Lösungen, um Lebensmittelverschwendung zu minimieren.</p>
-              </div>
-              <div class="flex flex-col items-center text-center">
-                <i class="fas fa-carrot text-3xl text-green-400 mb-2"></i>
-                <h3 class="text-xl font-semibold">Regionale Produkte</h3>
-                <p class="text-sm opacity-80">Unterstützen Sie regionale Landwirte und Produzenten.</p>
-              </div>
-              <div class="flex flex-col items-center text-center">
-                <i class="fas fa-cloud text-3xl text-green-400 mb-2"></i>
-                <h3 class="text-xl font-semibold">Geringere Emissionen</h3>
-                <p class="text-sm opacity-80">Tracken und reduzieren Sie Ihren CO₂-Fußabdruck.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Carbon Emissions Graph -->
-          <div class="chart-container max-w-3xl mx-auto mb-16">
-            <canvas id="emissions-chart"></canvas>
-          </div>
-      </section>
-
-            <!-- Transition Section -->
-        <div id ="transition" class="relative bg-gradient-to-b from-black to-gray-100 py-8 overflow-hidden">
-          <!-- Wave Divider -->
-          <svg class="absolute top-0 w-full h-12 text-black" preserveAspectRatio="none" viewBox="0 0 1440 54">
-            <path
-              fill="currentColor"
-              d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-            ></path>
-          </svg>
-          <!-- Optional Decorative Element -->
-          <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center items-center space-x-4">
-              <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
-
-              <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
-            </div>
-          </div>
-          <!-- Bottom Wave Divider -->
-          <svg class="absolute bottom-0 w-full h-12 text-gray-100" preserveAspectRatio="none" viewBox="0 0 1440 54">
-            <path
-              fill="currentColor"
-              d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,54L1392,54C1344,54,1248,54,1152,54C1056,54,960,54,864,54C768,54,672,54,576,54C480,54,384,54,288,54C192,54,96,54,48,54L0,54Z"
-            ></path>
-          </svg>
-        </div>
-
+        <!-- Bottom Wave Divider -->
+        <svg class="absolute bottom-0 w-full h-12 text-gray-100" preserveAspectRatio="none" viewBox="0 0 1440 54">
+          <path
+          fill="currentColor"
+          d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,54L1392,54C1344,54,1248,54,1152,54C1056,54,960,54,864,54C768,54,672,54,576,54C480,54,384,54,288,54C192,54,96,54,48,54L0,54Z"
+          ></path>
+        </svg>
+      </div>
+      
       <section id="features" class="py-16 bg-gray-100 text-white">
-        <div class="container mx-auto px-4">
-          <h2 class="h2-text">
-            Features von Ma Tchop
-          </h2>
+        <h2 class="h2-text">
+          Features von Ma Tchop
+        </h2>
+        <div class="feature-container">
+          <!-- iPhone Animation -->
+          <div id="iphone-wrapper">
+            <canvas id="iphone-canvas"></canvas>
+          </div>
+          
+          <!-- Feature Cards -->
+          <div id="card-container" >
+            <div class="feature-card active">
+              <h3>360° AI-Bestandsmanager</h3>
+              <p>Verabschiede dich von abgelaufenen Lebensmitteln. Ma Tchop überwacht deine Vorräte automatisch.</p>
+            </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 align-items-center">
+            <div class="feature-card">
+              <h3>Automatisches Bestellen</h3>
+              <p>KI erkennt knappe Produkte und bestellt mit einem Klick über lokale Lieferdienste.</p>
+            </div>
             
-            <!-- Feature Cards -->
-            <div id="card-container" >
-              <div class="feature-card active">
-                <h3>360° AI-Bestandsmanager</h3>
-                <p>Verabschiede dich von abgelaufenen Lebensmitteln. Ma Tchop überwacht deine Vorräte automatisch.</p>
-              </div>
-
-              <div class="feature-card">
-                <h3>Automatisches Bestellen</h3>
-                <p>KI erkennt knappe Produkte und bestellt mit einem Klick über lokale Lieferdienste.</p>
-              </div>
-
-              <div class="feature-card">
-                <h3>Persönliche Ernährungsanalyse</h3>
+            <div class="feature-card">
+              <h3>Persönliche Ernährungsanalyse</h3>
                 <p>Ma Tchop schlägt Rezepte passend zu deinen Zielen und Vorräten vor.</p>
               </div>
-
+              
               <div class="feature-card">
                 <h3>CO₂-Footprint-Tracking</h3>
                 <p>Jeder Einkauf wird auf Klima-Impact geprüft, um CO₂ zu sparen.</p>
               </div>
-
+              
               <div class="feature-card">
                 <h3>Spenden- & Sharing-Funktion</h3>
                 <p>Teile überschüssige Lebensmittel mit Foodbanks oder Nachbarn.</p>
               </div>
-
+              
               <div class="feature-card">
                 <h3>Regionale Bauern-Marktplatz</h3>
                 <p>Kaufe frische Produkte direkt vom Hof in deiner Nähe.</p>
               </div>
-
+              
               <div class="feature-card">
                 <h3>Gamification & Community</h3>
                 <p>Erfülle Challenges, sammle Punkte und tausche dich aus.</p>
               </div>
             </div>
-
-            <!-- iPhone Animation -->
-            <div id="iphone-wrapper">
-              <canvas id="iphone-canvas"></canvas>
-            </div>
+            
           </div>
         </div>
-      </section>
-
-
-    <!-- Testimonials Section with Avatars
-    <section id="testimonials" class="py-16 bg-gray-100">
-      <div class="container mx-auto px-4">
-        <h2
-          class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12"
-        >
-          Erfahrungsberichte
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div
+          
+        </section>
+        
+        <!-- Testimonials Section with Avatars -->
+        <!-- <section id="testimonials" class="py-16 bg-gray-100">
+          <div class="container mx-auto px-4">
+            <h2
+            class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12"
+            >
+            Erfahrungsberichte
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div
             class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 hover:shadow-xl transition"
-          >
+            >
             <img
-              src="assets/img/user1.jpg"
-              alt="Nutzerin Lena"
-              class="h-12 w-12 rounded-full object-cover"
+            src="assets/img/user1.jpg"
+            alt="Nutzerin Lena"
+            class="h-12 w-12 rounded-full object-cover"
             />
             <div>
               <blockquote class="text-gray-600 italic mb-4">
@@ -557,7 +557,6 @@
         </div>
       </div>
     </footer>
-
 
   </body>
 </html>

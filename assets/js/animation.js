@@ -11,21 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "none",
   });
 
-  // // Feature Cards Animation (Scroll-triggered only)
-  // gsap.from(".feature-card", {
-  //   scrollTrigger: {
-  //     trigger: "#features",
-  //     start: "top 80%",
-  //     end: "bottom 60%",
-  //     toggleActions: "play none none reset",
-  //   },
-  //   opacity: 0,
-  //   y: 100,
-  //   scale: 0.95,
-  //   stagger: 0.15,
-  //   duration: 1.2,
-  //   ease: "power3.out",
-  // });
 
   gsap.from(".transition-diagonal", {
     scrollTrigger: {
