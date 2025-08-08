@@ -1,10 +1,4 @@
-/* Custom styles for a futuristic, Apple-inspired design with Ma Tchop colors */
-:root {
-  --primary-green: #07A119;
-  --secondary-gray: #4B5EAA;
-  --background-white: #FFFFFF;
-  --gradient-accent: linear-gradient(135deg, #07A119, #4B5EAA);
-}
+@import url(./globals.css);
 
 /* General Reset */
 * {
@@ -106,7 +100,11 @@ body {
 
 /* Color Classes */
 .bg-primary-green {
-  background-color: var(--primary-green);
+  background-color: var(--alternative-green);
+}
+
+.bg-white{
+  background-color: var(--background-white);
 }
 
 .text-primary-green {
@@ -118,7 +116,7 @@ body {
 }
 
 .hover\:bg-green-700:hover {
-  background-color: #058614;
+  background-color: var(--alternative-green);
 }
 
 .hover\:text-primary-green:hover {

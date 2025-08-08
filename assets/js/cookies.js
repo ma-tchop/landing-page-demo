@@ -1,56 +1,61 @@
-window.onload = () => {
-    // Cookie Consent Logic
-    const cookieConsent = document.getElementById("cookie-consent");
-    const cookieSettingsBtn = document.getElementById("cookie-settings");
-    const cookieAcceptBtn = document.getElementById("cookie-accept");
-    const cookieSettingsModal = document.getElementById("cookie-settings-modal");
-    const cookieSaveBtn = document.getElementById("cookie-save");
-    const analyticsCookies = document.getElementById("analytics-cookies");
-    const marketingCookies = document.getElementById("marketing-cookies");
+document.addEventListener("DOMContentLoaded", initCookieBanner);
 
-    // Check if consent exists
-    const consent = localStorage.getItem("cookieConsent");
-    if (!consent) {
-        cookieConsent.classList.remove("hidden");
-    } else {
-        const preferences = JSON.parse(consent);
-        if (preferences.analytics) enableAnalytics();
-        if (preferences.marketing)
-        console.log("Marketing cookies enabled (placeholder)");
+function initCookieBanner() {
+  const el = {
+    consent: document.getElementById("cookie-consent"),
+    settingsBtn: document.getElementById("cookie-settings"),
+    acceptBtn: document.getElementById("cookie-accept"),
+    settingsModal: document.getElementById("cookie-settings-modal"),
+    saveBtn: document.getElementById("cookie-save"),
+    analyticsCb: document.getElementById("analytics-cookies"),
+    marketingCb: document.getElementById("marketing-cookies"),
+  };
+  if (!el.consent) return; // run only where banner exists
+
+  let prefs = null;
+  const raw = localStorage.getItem("cookieConsent");
+  if (raw) {
+    try {
+      prefs = JSON.parse(raw);
+    } catch {
+      localStorage.removeItem("cookieConsent");
     }
+  }
 
-    // Accept all cookies
-    cookieAcceptBtn.addEventListener("click", () => {
-        const preferences = { essential: true, analytics: true, marketing: true };
-        localStorage.setItem("cookieConsent", JSON.stringify(preferences));
-        cookieConsent.classList.add("hidden");
-        enableAnalytics();
-        console.log("All cookies accepted:", preferences);
-    });
+  if (!prefs) el.consent.classList.remove("hidden");
+  if (prefs) {
+    if (prefs.analytics) enableAnalytics();
+    if (el.analyticsCb) el.analyticsCb.checked = !!prefs.analytics;
+    if (el.marketingCb) el.marketingCb.checked = !!prefs.marketing;
+  }
 
-    // Show/hide settings modal
-    cookieSettingsBtn.addEventListener("click", () => {
-        cookieSettingsModal.classList.toggle("hidden");
-    });
+  el.acceptBtn?.addEventListener("click", () => {
+    const p = { essential: true, analytics: true, marketing: true };
+    localStorage.setItem("cookieConsent", JSON.stringify(p));
+    el.consent.classList.add("hidden");
+    enableAnalytics();
+  });
 
-    // Save custom preferences
-    cookieSaveBtn.addEventListener("click", () => {
-        const preferences = {
-        essential: true,
-        analytics: analyticsCookies.checked,
-        marketing: marketingCookies.checked,
-        };
-        localStorage.setItem("cookieConsent", JSON.stringify(preferences));
-        cookieConsent.classList.add("hidden");
-        if (preferences.analytics) enableAnalytics();
-        console.log("Cookie preferences saved:", preferences);
-    });
+  el.settingsBtn?.addEventListener("click", () => {
+    el.settingsModal?.classList.toggle("hidden");
+  });
 
-    // Placeholder for analytics
-    function enableAnalytics() {
-        console.log("Google Analytics enabled (placeholder)");
-        // Example: window.dataLayer = window.dataLayer || [];
-        // window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-    }
-    
+  el.saveBtn?.addEventListener("click", () => {
+    const p = {
+      essential: true,
+      analytics: !!el.analyticsCb?.checked,
+      marketing: !!el.marketingCb?.checked,
+    };
+    localStorage.setItem("cookieConsent", JSON.stringify(p));
+    el.consent.classList.add("hidden");
+    el.settingsModal?.classList.add("hidden");
+    if (p.analytics) enableAnalytics();
+  });
+
+  let analyticsEnabled = false;
+  function enableAnalytics() {
+    if (analyticsEnabled) return;
+    analyticsEnabled = true;
+    console.log("Google Analytics enabled (placeholder)");
+  }
 }

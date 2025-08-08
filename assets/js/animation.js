@@ -95,4 +95,41 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power2.out",
     delay: 0.5,
   });
+
+
+
+  //Feature animation
+
+  gsap.from(".feature-v1", {
+    scrollTrigger: {
+      trigger: "#features-v1",
+      start: "top 80%",
+      toggleActions: "play none none reset",
+      pinSpacing: false
+      
+    },
+    opacity: 0,
+    scale: 0.9,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power3.out",
+  });
+
+  //Parner animatiion
+
+  gsap.from(".partners-container", {
+    scrollTrigger: {
+      trigger: "#partners",
+      start: "top 80%",
+      toggleActions: "play none none reset",
+      pinSpacing: false,
+    },
+    opacity: 0,
+    scale: 0.9,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power3.out",
+  });
+
+
 });

@@ -1,0 +1,101 @@
+@import url(./globals.css);
+
+/* Section styles */
+#mission {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, var(--alternative-green), #000);
+  color: var(--font-white);
+}
+
+/* Container */
+#mission .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Heading and subheading */
+#mission .heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#mission .heading h2 {
+  font-size: var(--text-base);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  animation: fade-in 1s ease forwards;
+}
+
+@media (min-width: 768px) {
+  #mission .heading h2 {
+    font-size: 3rem;
+  }
+}
+
+#mission .heading p {
+  font-size: var(--text-base);
+  max-width: 40rem;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Concepts section */
+#mission .concepts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+#mission .concept-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  #mission .concept-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+#mission .concept {
+  text-align: center;
+}
+
+#mission .concept i {
+  font-size: 1.875rem;
+  color: var(--secondary-green);
+  margin-bottom: 0.5rem;
+}
+
+#mission .concept h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+#mission .concept p {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Chart container */
+#mission .chart-container {
+  max-width: 48rem;
+  margin: 0 auto 4rem;
+}
+
+/* Animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

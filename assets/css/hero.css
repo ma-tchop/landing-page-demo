@@ -1,4 +1,4 @@
-
+@import url(./globals.css);
 .hero {
   position: relative;
   height: 100vh;
@@ -98,7 +98,7 @@
   justify-content: center;
   width: 64px;
   height: 64px;
-  border: 2px solid #4ade80; /* green-400 */
+  border: 2px solid var(--alternative-green); /* green-400 */
   color: white;
   font-weight: 600;
   border-radius: 9999px;
@@ -110,7 +110,7 @@
 
 /* Change border color on hover */
 .scroll-button:hover {
-  border-color: #22c55e; /* green-500 */
+  border-color: var(--alternative-green); /* green-500 */
 }
 
 /* Arrow stays still inside */

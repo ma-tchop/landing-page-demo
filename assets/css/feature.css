@@ -1,77 +1,84 @@
-#features{
-    height: 900px;
-    overflow: hidden;
+@import url(./globals.css);
+
+#features {
+  height: 900px;
+  overflow: hidden;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  background-color: var(--background-black);
+}
+
+.pin-spacer {
+  background-color: var(--background-white);
 }
 
 .h2-text {
-   font-size: 1.875rem; /* 3xl */
-  font-size: 2.25rem; /* sm: 4xl */
+  font-size: var(--text-lg);
   font-weight: bold;
   text-align: center;
-  color: #1f2937; /* gray-900 */
+  color: var(--background-white); /* gray-900 */
   margin-bottom: 4rem;
 }
 
-.feature-container{
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: center;
+.feature-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
 }
 
 /* Container for stacked cards */
 #card-container {
-    position: relative;
-    width: 60%;
-    height: 70vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 60%;
+  height: 70vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Base styling for each card */
 .feature-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, calc(-50% - 50px));
-    width: 100%;
-    background: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    will-change: transform, opacity;
-    /* Remove margin or vertical offset if present */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 50px));
+  width: 100%;
+  background: var(--background-white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform, opacity;
+  /* Remove margin or vertical offset if present */
 }
-
 
 /* New: partially visible next card */
 .feature-card.preview {
-    opacity: 0.27;
-    transform: translate(-50%, calc(-50% + 30px)) scale(0.96);
-    z-index: 1;
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.27;
+  transform: translate(-50%, calc(-50% + 30px)) scale(0.96);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 /* Active card visible */
 .feature-card.active {
-    opacity: 1;
-    transform: translate(-50%, -50%);
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
 /* Gradient hover effect */
 .feature-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, #22c55e, #14b8a6);
-    opacity: 0;
-    border-radius: 1rem;
-    transition: opacity 0.5s;
-    z-index: 0;
-} 
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #22c55e, #14b8a6);
+  opacity: 0;
+  border-radius: 1rem;
+  transition: opacity 0.5s;
+  z-index: 0;
+}
 
 .feature-card:hover::before {
   opacity: 0.1;
@@ -95,16 +102,17 @@
 
 /* Title */
 .feature-card h3 {
-  font-size: 1.5rem;
+  font-size: var(--text-base);
+  line-height: 1.75rem;
   font-weight: bold;
-  color: #111827;
+  color: var(--font-black);
   margin-bottom: 1rem;
 }
 
 /* Paragraph */
 .feature-card p {
-  color: #4b5563;
-  line-height: 1.6;
+  color: (--font-gray-900);
+  line-height: 1.5rem;
 }
 
 #iphone-wrapper {
@@ -118,11 +126,11 @@
 }
 
 #iphone-canvas {
-    max-height: 80vh;
+  max-height: 80vh;
 }
 
 @media (max-width: 768px) {
-  #features{
+  #features {
     height: 90vh;
   }
 
@@ -141,9 +149,9 @@
     position: relative;
     padding: 1.5rem 0;
   }
-  
+
   .feature-card {
-      position: absolute;
+    position: absolute;
     top: auto;
     left: auto;
     transform: none;
@@ -152,21 +160,19 @@
     margin: 0 auto 1.5rem auto;
     opacity: 0;
     z-index: 1;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     padding: 1.25rem;
-}
+  }
 
-.feature-card.preview {
+  .feature-card.preview {
     opacity: 0.27;
     transform: none;
     z-index: 1;
-}
+  }
 
-.feature-card.active {
+  .feature-card.active {
     opacity: 1;
     transform: none;
     z-index: 2;
-}
-
-
+  }
 }

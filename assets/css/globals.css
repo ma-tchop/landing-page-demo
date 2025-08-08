@@ -1,0 +1,18 @@
+:root {
+  --primary-green: #547240;
+  --secondary-green: #b9e164;
+  --alternative-green: #064e3b;
+
+  --first-accent: #ffbb99;
+  --background-white: #F5F5F5;
+  --background-black: black;
+  --font-gray-900: #1f2937;
+  --font-black: #111827;
+  --font-white: #f3f4f6;
+
+  /*Font sizes*/
+  /* 3 fontsizes */
+  --text-lg: 3rem; /* 18px */
+  --text-base: 1.25rem; /* 16px */
+  --text-sm: 0.875rem; /* 12px */
+}

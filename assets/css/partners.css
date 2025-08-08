@@ -1,0 +1,26 @@
+@import url(./globals.css);
+
+#partners {
+  background-color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+#partners h2 {
+  font-size: var(--text-lg);
+  font-weight: bold;
+  margin-bottom: 4rem;
+}
+
+.partners-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.partners-container img {
+  width: 20rem;
+  object-fit: contain;
+}

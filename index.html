@@ -1,547 +1,363 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Ma Tchop – Dein AI-Agent für nachhaltiges Einkaufen & gesunde Ernährung
-    </title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/feature.css" />
-    <link rel="stylesheet" href="assets/css/hero.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-  
-    <!-- local js Files -->
-    <script src="/assets/js/charts.js"></script>
-    <script src="assets/js/animation.js"></script>
-    <script src="assets/js/cookies.js"></script>
-    <script src="assets/js/newsletter.js"></script>
-    <script src="assets/js/mobile-view.js"></script>
-    <script src="assets/js/IphoneAnimation.js"></script>
-  
-  </head>
-  <body class="bg-white font-sans antialiased overflow-x-hidden">
-    <!-- Cookie Consent Popup -->
-    <div
-      id="cookie-consent"
-      class="fixed bottom-0 left-0 right-0 bg-gray-900 bg-opacity-95 text-white p-4 sm:p-6 z-50 hidden"
-    >
-      <div class="container mx-auto max-w-2xl">
-        <h2 class="text-lg sm:text-xl font-semibold mb-4">
-          Wir verwenden Cookies
-        </h2>
-        <p class="text-sm sm:text-base mb-4">
-          Wir nutzen Cookies, um deine Erfahrung auf unserer Website zu
-          verbessern. Einige sind notwendig für die Funktionalität, andere
-          helfen uns, Inhalte zu personalisieren und die Nutzung zu analysieren.
-          Mehr erfährst du in unserer
-          <a
-            href="datenschutz.html"
-            class="underline text-primary-green hover:text-green-700"
-            >Datenschutzerklärung</a
-          >.
-        </p>
-        <div
-          class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-4"
-        >
-          <button
-            id="cookie-settings"
-            class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-600 transition"
-          >
-            Einstellungen
-          </button>
-          <button
-            id="cookie-accept"
-            class="bg-primary-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition"
-          >
-            Alle akzeptieren
-          </button>
-        </div>
-        <div id="cookie-settings-modal" class="hidden mt-4">
-          <div class="bg-white text-gray-900 p-4 rounded-lg">
-            <h3 class="text-lg font-semibold mb-4">Cookie-Einstellungen</h3>
-            <div class="space-y-4">
-              <div>
-                <label class="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    checked
-                    disabled
-                    class="text-primary-green focus:ring-primary-green"
-                  />
-                  <span class="text-sm">Notwendige Cookies (immer aktiv)</span>
-                </label>
-              </div>
-              <div>
-                <label class="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="analytics-cookies"
-                    class="text-primary-green focus:ring-primary-green"
-                  />
-                  <span class="text-sm">Analyse-Cookies</span>
-                </label>
-              </div>
-              <div>
-                <label class="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    id="marketing-cookies"
-                    class="text-primary-green focus:ring-primary-green"
-                  />
-                  <span class="text-sm">Marketing-Cookies</span>
-                </label>
-              </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    Ma Tchop – Dein AI-Agent für nachhaltiges Einkaufen & gesunde Ernährung
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/feature-v1.css" />
+  <link rel="stylesheet" href="assets/css/hero.css" />
+  <link rel="stylesheet" href="assets/css/partners.css" />
+  <link rel="stylesheet" href="assets/css/mission.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+  <!-- local js Files -->
+  <script src="/assets/js/charts.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/cookies.js"></script>
+  <script src="assets/js/newsletter.js"></script>
+  <script src="assets/js/mobile-view.js"></script>
+  <script src="assets/js/IphoneAnimation.js"></script>
+
+</head>
+
+<body class="bg-white font-sans antialiased overflow-x-hidden">
+  <!-- Cookie Consent Popup -->
+  <div id="cookie-consent"
+    class="fixed bottom-0 left-0 right-0 bg-gray-900 bg-opacity-95 text-white p-4 sm:p-6 z-50 hidden">
+    <div class="container mx-auto max-w-2xl">
+      <h2 class="text-lg sm:text-xl font-semibold mb-4">
+        Wir verwenden Cookies
+      </h2>
+      <p class="text-sm sm:text-base mb-4">
+        Wir nutzen Cookies, um deine Erfahrung auf unserer Website zu
+        verbessern. Einige sind notwendig für die Funktionalität, andere
+        helfen uns, Inhalte zu personalisieren und die Nutzung zu analysieren.
+        Mehr erfährst du in unserer
+        <a href="datenschutz.html" class="underline text-primary-green hover:text-green-700">Datenschutzerklärung</a>.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-4">
+        <button id="cookie-settings"
+          class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-600 transition">
+          Einstellungen
+        </button>
+        <button id="cookie-accept"
+          class="bg-primary-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition">
+          Alle akzeptieren
+        </button>
+      </div>
+      <div id="cookie-settings-modal" class="hidden mt-4">
+        <div class="bg-white text-gray-900 p-4 rounded-lg">
+          <h3 class="text-lg font-semibold mb-4">Cookie-Einstellungen</h3>
+          <div class="space-y-4">
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" checked disabled class="text-primary-green focus:ring-primary-green" />
+                <span class="text-sm">Notwendige Cookies (immer aktiv)</span>
+              </label>
             </div>
-            <div class="flex justify-end mt-4">
-              <button
-                id="cookie-save"
-                class="bg-primary-green text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition"
-              >
-                Speichern
-              </button>
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" id="analytics-cookies" class="text-primary-green focus:ring-primary-green" />
+                <span class="text-sm">Analyse-Cookies</span>
+              </label>
             </div>
+            <div>
+              <label class="flex items-center space-x-2">
+                <input type="checkbox" id="marketing-cookies" class="text-primary-green focus:ring-primary-green" />
+                <span class="text-sm">Marketing-Cookies</span>
+              </label>
+            </div>
+          </div>
+          <div class="flex justify-end mt-4">
+            <button id="cookie-save"
+              class="bg-primary-green text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition">
+              Speichern
+            </button>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Header / Navigation -->
-      <header
-        class="bg-gray-900 bg-opacity-90 backdrop-blur-md fixed w-full z-50 transition-all duration-300"
-      >
-        <div
-          class="container mx-auto px-4 py-4 flex justify-between items-center"
-        >
-          <a href="#" class="text-white text-2xl font-bold tracking-tight"
-            >Ma Tchop</a
-          >
-          <nav class="hidden md:flex space-x-8">
-            <a
-              href="#mission"
-              class="text-white text-sm hover:text-primary-green transition"
-              >Mission</a
-            >
-            <a
-              href="#features"
-              class="text-white text-sm hover:text-primary-green transition"
-              >Funktionen</a
-            >
-            <a
-              href="#newsletter"
-              class="text-white text-sm hover:text-primary-green transition"
-              >Tester*in werden</a
-            >
-          </nav>
-          <button
-            class="md:hidden text-white focus:outline-none"
-            id="menu-toggle"
-          >
-            <svg
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
-        <div
-          id="mobile-menu"
-          class="hidden md:hidden bg-gray-900 bg-opacity-95 w-full absolute top-full left-0 py-4"
-        >
-          <nav class="flex flex-col items-center space-y-4">
-            <a
-              href="#mission"
-              class="text-white text-sm hover:text-primary-green transition"
-              >Mission</a
-            >
-            <a
-              href="#features"
-              class="text-white text-sm hover:text-primary-green transition"
-              >Funktionen</a
-            >
-            <!-- <a
+  <!-- Header / Navigation -->
+  <header class="bg-gray-900 bg-opacity-90 backdrop-blur-md fixed w-full z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-white text-2xl font-bold tracking-tight">Ma Tchop</a>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#mission" class="text-white text-sm hover:text-primary-green transition">Mission</a>
+        <a href="#features" class="text-white text-sm hover:text-primary-green transition">Funktionen</a>
+        <a href="#newsletter" class="text-white text-sm hover:text-primary-green transition">Tester*in werden</a>
+      </nav>
+      <button class="md:hidden text-white focus:outline-none" id="menu-toggle">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-95 w-full absolute top-full left-0 py-4">
+      <nav class="flex flex-col items-center space-y-4">
+        <a href="#mission" class="text-white text-sm hover:text-primary-green transition">Mission</a>
+        <a href="#features" class="text-white text-sm hover:text-primary-green transition">Funktionen</a>
+        <!-- <a
               href="#testimonials"
               class="text-white text-sm hover:text-primary-green transition"
               >Erfahrungsberichte</a
             > -->
-            <a
-              href="#newsletter"
-              class="text-white text-sm hover:text-primary-green transition"
-              >Tester*in werden</a
-            >
-          </nav>
-        </div>
-      </header>
-
-      <section class="hero">
-        <img src="assets/img/h5.jpg" alt="Hero Background" class="hero-bg">
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content-container">
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Revolutioniere deinen Einkauf mit Ma Tchop
-            </h1>
-            <p class="hero-subtitle">
-              Dein KI-gestützter Begleiter für nachhaltiges Einkaufen, gesunde Ernährung und CO₂-Reduktion.
-            </p>
-          </div>
-        </div>
-        <div class="scroll-indicator">
-          <a href="#transition" class="scroll-button" onclick="event.preventDefault(); var nachhaltigkeit = document.querySelector('#mission'); window.scrollTo({ top: nachhaltigkeit.offsetTop - 100, behavior: 'smooth' });">
-            <svg class="scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </a>
-        </div>
-      </section>
-
-        <!-- Transition Section -->
-    <div id ="transition" class="relative bg-gradient-to-b from-black to-green-900 py-8 overflow-hidden">
-      <!-- Wave Divider -->
-      <svg class="absolute top-0 w-full h-12 text-black" preserveAspectRatio="none" viewBox="0 0 1440 54">
-        <path
-          fill="currentColor"
-          d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-        ></path>
-      </svg>
-      <!-- Optional Decorative Element -->
-      <div class="container mx-auto px-4 text-center">
-        <div class="flex justify-center items-center space-x-4">
-          <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
-
-          <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
-        </div>
-      </div>
-      <!-- Bottom Wave Divider -->
-      <svg class="absolute bottom-0 w-full h-12 text-green-900" preserveAspectRatio="none" viewBox="0 0 1440 54">
-        <path
-          fill="currentColor"
-          d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,54L1392,54C1344,54,1248,54,1152,54C1056,54,960,54,864,54C768,54,672,54,576,54C480,54,384,54,288,54C192,54,96,54,48,54L0,54Z"
-        ></path>
-      </svg>
+        <a href="#newsletter" class="text-white text-sm hover:text-primary-green transition">Tester*in werden</a>
+      </nav>
     </div>
+  </header>
 
-  <section id="mission" class="py-16 bg-gradient-to-b from-green-900 to-black text-white">
-    <div class="container mx-auto px-4">
+  <section class="hero">
+    <img src="assets/img/h5.jpg" alt="Hero Background" class="hero-bg">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Revolutioniere deinen Einkauf mit Ma Tchop
+        </h1>
+        <p class="hero-subtitle">
+          Dein KI-gestützter Begleiter für nachhaltiges Einkaufen, gesunde Ernährung und CO₂-Reduktion.
+        </p>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <a href="#transition" class="scroll-button"
+        onclick="event.preventDefault(); var nachhaltigkeit = document.querySelector('#mission'); window.scrollTo({ top: nachhaltigkeit.offsetTop - 100, behavior: 'smooth' });">
+        <svg class="scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Transition Section -->
+  <div id="transition" class="relative bg-gradient-to-b from-black to-green-900 py-8 overflow-hidden">
+    <!-- Wave Divider -->
+    <svg class="absolute top-0 w-full h-12 text-black" preserveAspectRatio="none" viewBox="0 0 1440 54">
+      <path fill="currentColor"
+        d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+      </path>
+    </svg>
+    <!-- Optional Decorative Element -->
+    <div class="container mx-auto px-4 text-center">
+      <div class="flex justify-center items-center space-x-4">
+        <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+
+        <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+      </div>
+    </div>
+    <!-- Bottom Wave Divider -->
+    <svg class="absolute bottom-0 w-full h-12 text-green-900" preserveAspectRatio="none" viewBox="0 0 1440 54">
+      <path fill="currentColor"
+        d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,54L1392,54C1344,54,1248,54,1152,54C1056,54,960,54,864,54C768,54,672,54,576,54C480,54,384,54,288,54C192,54,96,54,48,54L0,54Z">
+      </path>
+    </svg>
+  </div>
+
+  <section id="mission">
+    <div class="container">
       <!-- Heading and Subheading -->
-      <div class="text-center mb-12">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
-          Unsere Mission: Die Nachhaltigkeit neu definieren
-        </h2>
-        <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
-          Ma Tchop setzt künstliche Intelligenz ein, um Lebensmittelverschwendung zu reduzieren, regionale Produkte zu fördern und Ihren CO₂-Fußabdruck zu minimieren.
+      <div class="heading">
+        <h2>Unsere Mission: Die Nachhaltigkeit neu definieren</h2>
+        <p>
+          Ma Tchop setzt künstliche Intelligenz ein, um Lebensmittelverschwendung
+          zu reduzieren, regionale Produkte zu fördern und Ihren CO₂-Fußabdruck
+          zu minimieren.
         </p>
       </div>
 
       <!-- Seedling Image and Icons -->
-      <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
-        <!-- Seedling Image
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Samenling, der Wachstum symbolisiert" class="w-64 h-64 object-cover rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-          <div class="absolute -bottom-4 -right-4 bg-green-500 text-white text-sm px-3 py-1 rounded-full">Wachstum</div>
-        </div> -->
-        <!-- Key Concepts with Icons -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="flex flex-col items-center text-center">
-            <i class="fas fa-leaf text-3xl text-green-400 mb-2"></i>
-            <h3 class="text-xl font-semibold">Weniger Verschwendung</h3>
-            <p class="text-sm opacity-80">AI-gestützte Lösungen, um Lebensmittelverschwendung zu minimieren.</p>
+      <div class="concepts">
+        <div class="concept-grid">
+          <div class="concept">
+            <i class="fas fa-leaf"></i>
+            <h3>Weniger Verschwendung</h3>
+            <p>AI-gestützte Lösungen, um Lebensmittelverschwendung zu minimieren.</p>
           </div>
-          <div class="flex flex-col items-center text-center">
-            <i class="fas fa-carrot text-3xl text-green-400 mb-2"></i>
-            <h3 class="text-xl font-semibold">Regionale Produkte</h3>
-            <p class="text-sm opacity-80">Unterstützen Sie regionale Landwirte und Produzenten.</p>
+          <div class="concept">
+            <i class="fas fa-carrot"></i>
+            <h3>Regionale Produkte</h3>
+            <p>Unterstütze deine regionale Landwirte und Produzenten.</p>
           </div>
-          <div class="flex flex-col items-center text-center">
-            <i class="fas fa-cloud text-3xl text-green-400 mb-2"></i>
-            <h3 class="text-xl font-semibold">Geringere Emissionen</h3>
-            <p class="text-sm opacity-80">Tracken und reduzieren Sie Ihren CO₂-Fußabdruck.</p>
+          <div class="concept">
+            <i class="fas fa-cloud"></i>
+            <h3>Geringere Emissionen</h3>
+            <p>Tracken und reduziere deinen CO₂-Fußabdruck.</p>
           </div>
         </div>
       </div>
 
       <!-- Carbon Emissions Graph -->
-      <div class="chart-container max-w-3xl mx-auto mb-16">
+      <div class="chart-container">
         <canvas id="emissions-chart"></canvas>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Transition Section -->
+  <div id="transition" class="absolute bottom-0 left-0 w-full from-black to-gray-100 py-8 overflow-hidden">
+    <!-- Wave Divider -->
+    <svg class="absolute top-0 w-full h-12 text-black" preserveAspectRatio="none" viewBox="0 0 1440 54">
+      <path fill="currentColor"
+        d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+      </path>
+    </svg>
+    <!-- Optional Decorative Element -->
+    <div class="container mx-auto px-4 text-center">
+      <div class="flex justify-center items-center space-x-4">
+        <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+
+        <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+      </div>
+    </div>
+    <!-- Bottom Wave Divider -->
+    <svg class="absolute bottom-0 w-full h-12 text-gray-100" preserveAspectRatio="none" viewBox="0 0 1440 54">
+      <path fill="currentColor"
+        d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,54L1392,54C1344,54,1248,54,1152,54C1056,54,960,54,864,54C768,54,672,54,576,54C480,54,384,54,288,54C192,54,96,54,48,54L0,54Z">
+      </path>
+    </svg>
+  </div>
+  </section>
+
+  <section id="features-v1">
+    <h2 class="features-v1-h2-text">Features</h2>
+    <div class="features-v1-container">
+      <div class="feature-v1">
+        <h3>360° AI-Bestandsmanager</h3>
+        <p>Verabschiede dich von abgelaufenen Lebensmitteln. Ma Tchop überwacht deine Vorräte automatisch.</p>
+      </div>
+      <div class="feature-v1">
+        <h3>Automatisches Bestellen</h3>
+        <p>KI erkennt knappe Produkte und bestellt mit einem Klick über lokale Lieferdienste.</p>
+      </div>
+      <div class="feature-v1">
+        <h3>Persönliche Ernährungsanalyse</h3>
+        <p>Ma Tchop schlägt Rezepte passend zu deinen Zielen und Vorräten vor.</p>
+      </div>
+      <div class="feature-v1">
+        <h3>CO₂-Footprint-Tracking</h3>
+        <p>Jeder Einkauf wird auf Klima-Impact geprüft, um CO₂ zu sparen.</p>
+      </div>
+      <div class="feature-v1">
+        <h3>Spenden- & Sharing-Funktion</h3>
+        <p>Teile überschüssige Lebensmittel mit Foodbanks oder Nachbarn.</p>
+      </div>
+      <div class="feature-v1">
+        <h3>Regionale Bauern-Marktplatz</h3>
+        <p>Kaufe frische Produkte direkt vom Hof in deiner Nähe.</p>
+      </div>
+      <div class="feature-v1">
+        <h3>Gamification & Community</h3>
+        <p>Erfülle Challenges, sammle Punkte und tausche dich aus.</p>
       </div>
   </section>
 
-           <!-- Transition Section -->
-      <div id ="transition" class="relative bg-gradient-to-b from-black to-gray-100 py-8 overflow-hidden">
-        <!-- Wave Divider -->
-        <svg class="absolute top-0 w-full h-12 text-black" preserveAspectRatio="none" viewBox="0 0 1440 54">
-          <path
-            fill="currentColor"
-            d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-          ></path>
-        </svg>
-        <!-- Optional Decorative Element -->
-        <div class="container mx-auto px-4 text-center">
-          <div class="flex justify-center items-center space-x-4">
-            <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
+  <section id="partners">
+    <h2>Unsere Partner</h2>
+    <div class="partners-container">
+      <img src="assets/img/go.png" alt="Partners">
+    </div>
+  </section>
 
-            <i class="fas fa-leaf text-green-400 text-2xl animate-pulse"></i>
-          </div>
-        </div>
-        <!-- Bottom Wave Divider -->
-        <svg class="absolute bottom-0 w-full h-12 text-gray-100" preserveAspectRatio="none" viewBox="0 0 1440 54">
-          <path
-          fill="currentColor"
-          d="M0,22L48,26.7C96,31,192,40,288,42.3C384,44,480,40,576,33.3C672,27,768,18,864,13.3C960,9,1056,9,1152,14.7C1248,20,1344,31,1392,36.7L1440,42L1440,54L1392,54C1344,54,1248,54,1152,54C1056,54,960,54,864,54C768,54,672,54,576,54C480,54,384,54,288,54C192,54,96,54,48,54L0,54Z"
-          ></path>
-        </svg>
-      </div>
-      
-      <section id="features" class="py-16 bg-gray-100 text-white">
-        <h2 class="h2-text">
-          Features von Ma Tchop
-        </h2>
-        <div class="feature-container">
-          <!-- iPhone Animation -->
-          <div id="iphone-wrapper">
-            <canvas id="iphone-canvas"></canvas>
-          </div>
-          
-          <!-- Feature Cards -->
-          <div id="card-container" >
-            <div class="feature-card active">
-              <h3>360° AI-Bestandsmanager</h3>
-              <p>Verabschiede dich von abgelaufenen Lebensmitteln. Ma Tchop überwacht deine Vorräte automatisch.</p>
-            </div>
 
-            <div class="feature-card">
-              <h3>Automatisches Bestellen</h3>
-              <p>KI erkennt knappe Produkte und bestellt mit einem Klick über lokale Lieferdienste.</p>
-            </div>
-            
-            <div class="feature-card">
-              <h3>Persönliche Ernährungsanalyse</h3>
-                <p>Ma Tchop schlägt Rezepte passend zu deinen Zielen und Vorräten vor.</p>
-              </div>
-              
-              <div class="feature-card">
-                <h3>CO₂-Footprint-Tracking</h3>
-                <p>Jeder Einkauf wird auf Klima-Impact geprüft, um CO₂ zu sparen.</p>
-              </div>
-              
-              <div class="feature-card">
-                <h3>Spenden- & Sharing-Funktion</h3>
-                <p>Teile überschüssige Lebensmittel mit Foodbanks oder Nachbarn.</p>
-              </div>
-              
-              <div class="feature-card">
-                <h3>Regionale Bauern-Marktplatz</h3>
-                <p>Kaufe frische Produkte direkt vom Hof in deiner Nähe.</p>
-              </div>
-              
-              <div class="feature-card">
-                <h3>Gamification & Community</h3>
-                <p>Erfülle Challenges, sammle Punkte und tausche dich aus.</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-          
-        </section>
-        
-        <!-- Testimonials Section with Avatars -->
-        <!-- <section id="testimonials" class="py-16 bg-gray-100">
-          <div class="container mx-auto px-4">
-            <h2
-            class="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12"
-            >
-            Erfahrungsberichte
-          </h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div
-            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 hover:shadow-xl transition"
-            >
-            <img
-            src="assets/img/user1.jpg"
-            alt="Nutzerin Lena"
-            class="h-12 w-12 rounded-full object-cover"
-            />
-            <div>
-              <blockquote class="text-gray-600 italic mb-4">
-                „Ma Tchop hat meine Lebensmittelverschwendung um 30 % reduziert.
-                Die CO₂-Statistiken sind super motivierend!“
-              </blockquote>
-              <p class="text-gray-900 font-semibold">Lena, Berlin</p>
-            </div>
-          </div>
-          <div
-            class="bg-white p-6 rounded-lg shadow-md flex items-start space-x-4 hover:shadow-xl transition"
-          >
-            <img
-              src="assets/img/user2.jpg"
-              alt="Nutzer Cliford"
-              class="h-12 w-12 rounded-full object-cover"
-            />
-            <div>
-              <blockquote class="text-gray-600 italic mb-4">
-                „Die Ernährungsanalyse hilft mir, meine Fitnessziele im Blick zu
-                behalten. Einfach und effektiv!“
-              </blockquote>
-              <p class="text-gray-900 font-semibold">Cliford, Bayreuth</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- Newsletter Section -->
-    <section id="newsletter" class="py-16 bg-white">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-          Teste Ma Tchop: Dein AI-Agent live
-        </h2>
-        <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Melde dich an, um als Erste*r unseren Prototypen mit KI-gestütztem
-          Ernährungs- und CO₂-Tracking zu erleben!
+  <!-- Newsletter Section -->
+  <section id="newsletter" class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+        Teste Ma Tchop: Dein AI-Agent live
+      </h2>
+      <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Melde dich an, um als Erste*r unseren Prototypen mit KI-gestütztem
+        Ernährungs- und CO₂-Tracking zu erleben!
+      </p>
+      <form id="newsletter-form"
+        class="newsletter-form flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+        action="https://formspree.io/f/xpwrwrbk" method="POST" novalidate>
+        <input type="text" name="name" placeholder="Dein Name" required
+          class="px-4 py-3 rounded-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-green" />
+        <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required
+          class="px-4 py-3 rounded-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-green" />
+        <button type="submit"
+          class="bg-primary-green text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition transform hover:scale-105">
+          Jetzt anmelden
+        </button>
+      </form>
+      <div id="thank-you" class="thank-you hidden mt-4">
+        <p class="text-gray-900 text-lg">
+          Danke fürs Eintragen! 🎉 Wir melden uns in Kürze bei dir.
         </p>
-        <form
-          id="newsletter-form"
-          class="newsletter-form flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
-          action="https://formspree.io/f/xpwrwrbk"
-          method="POST"
-          novalidate
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Dein Name"
-            required
-            class="px-4 py-3 rounded-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-green"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Deine E-Mail-Adresse"
-            required
-            class="px-4 py-3 rounded-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary-green"
-          />
-          <button
-            type="submit"
-            class="bg-primary-green text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition transform hover:scale-105"
-          >
-            Jetzt anmelden
-          </button>
-        </form>
-        <div id="thank-you" class="thank-you hidden mt-4">
-          <p class="text-gray-900 text-lg">
-            Danke fürs Eintragen! 🎉 Wir melden uns in Kürze bei dir.
-          </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#mission" class="text-gray-300 hover:text-primary-green transition">Mission</a>
+            </li>
+            <li>
+              <a href="#features" class="text-gray-300 hover:text-primary-green transition">Funktionen</a>
+            </li>
+            <li>
+              <a href="#demo" class="text-gray-300 hover:text-primary-green transition">Demo</a>
+            </li>
+            <li>
+              <a href="#newsletter" class="text-gray-300 hover:text-primary-green transition">Kontakt</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Kontakt & Social</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="mailto:info@ma-tchop.com"
+                class="text-gray-300 hover:text-primary-green transition">info@ma-tchop.com</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/matchop___/?igsh=eHdkbWJneGxmNXph&utm_source=qr" target="_blank"
+                class="text-gray-300 hover:text-primary-green transition">Instagram</a>
+            </li>
+            <li>
+              <a href="#" target="_blank" class="text-gray-300 hover:text-primary-green transition">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Rechtliches</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="impressum.html" class="text-gray-300 hover:text-primary-green transition">Impressum</a>
+            </li>
+            <li>
+              <a href="datenschutz.html" class="text-gray-300 hover:text-primary-green transition">Datenschutz</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Links</h4>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="#mission"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >Mission</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#features"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >Funktionen</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#demo"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >Demo</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#newsletter"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >Kontakt</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Kontakt & Social</h4>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="mailto:Matchop@web.de"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >Matchop@web.de</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/matchop___/?igsh=eHdkbWJneGxmNXph&utm_source=qr"
-                  target="_blank"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >Instagram</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  target="_blank"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >LinkedIn</a
-                >
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="text-lg font-semibold mb-4">Rechtliches</h4>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="impressum.html"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >Impressum</a
-                >
-              </li>
-              <li>
-                <a
-                  href="datenschutz.html"
-                  class="text-gray-300 hover:text-primary-green transition"
-                  >Datenschutz</a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="mt-8 text-center text-gray-300">
-          &copy; 2025 Ma Tchop. Alle Rechte vorbehalten.
-        </div>
+      <div class="mt-8 text-center text-gray-300">
+        &copy; 2025 Ma Tchop. Alle Rechte vorbehalten.
       </div>
-    </footer>
+    </div>
+  </footer>
 
-  </body>
+</body>
+
 </html>
