@@ -88,13 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "elastic.out(1, 0.5)",
   });
 
-  gsap.from("#cookie-consent", {
-    opacity: 0,
-    y: 100,
-    duration: 0.5,
-    ease: "power2.out",
-    delay: 0.5,
-  });
+  // gsap.from("#cookie-consent", {
+  //   opacity: 0,
+  //   y: 100,
+  //   duration: 0.5,
+  //   ease: "power2.out",
+  //   delay: 0.5,
+  // });
 
 
 

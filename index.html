@@ -21,7 +21,6 @@
   <!-- local js Files -->
   <script src="/assets/js/charts.js"></script>
   <script src="assets/js/animation.js"></script>
-  <script src="assets/js/cookies.js"></script>
   <script src="assets/js/newsletter.js"></script>
   <script src="assets/js/mobile-view.js"></script>
   <script src="assets/js/IphoneAnimation.js"></script>
@@ -29,9 +28,8 @@
 </head>
 
 <body class="bg-white font-sans antialiased overflow-x-hidden">
-  <!-- Cookie Consent Popup -->
-  <div id="cookie-consent"
-    class="fixed bottom-0 left-0 right-0 bg-gray-900 bg-opacity-95 text-white p-4 sm:p-6 z-50 hidden">
+   <!-- Cookie Consent Banner -->
+  <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-gray-900 bg-opacity-95 text-white p-4 sm:p-6 z-50 hidden">
     <div class="container mx-auto max-w-2xl">
       <h2 class="text-lg sm:text-xl font-semibold mb-4">
         Wir verwenden Cookies
@@ -44,45 +42,44 @@
         <a href="datenschutz.html" class="underline text-primary-green hover:text-green-700">Datenschutzerklärung</a>.
       </p>
       <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-4">
-        <button id="cookie-settings"
-          class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-600 transition">
+        <button id="cookie-settings" class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm hover:bg-gray-600 transition">
           Einstellungen
         </button>
-        <button id="cookie-accept"
-          class="bg-primary-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition">
+        <button id="cookie-accept" class="bg-primary-green text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition">
           Alle akzeptieren
         </button>
       </div>
-      <div id="cookie-settings-modal" class="hidden mt-4">
-        <div class="bg-white text-gray-900 p-4 rounded-lg">
-          <h3 class="text-lg font-semibold mb-4">Cookie-Einstellungen</h3>
-          <div class="space-y-4">
-            <div>
-              <label class="flex items-center space-x-2">
-                <input type="checkbox" checked disabled class="text-primary-green focus:ring-primary-green" />
-                <span class="text-sm">Notwendige Cookies (immer aktiv)</span>
-              </label>
-            </div>
-            <div>
-              <label class="flex items-center space-x-2">
-                <input type="checkbox" id="analytics-cookies" class="text-primary-green focus:ring-primary-green" />
-                <span class="text-sm">Analyse-Cookies</span>
-              </label>
-            </div>
-            <div>
-              <label class="flex items-center space-x-2">
-                <input type="checkbox" id="marketing-cookies" class="text-primary-green focus:ring-primary-green" />
-                <span class="text-sm">Marketing-Cookies</span>
-              </label>
-            </div>
-          </div>
-          <div class="flex justify-end mt-4">
-            <button id="cookie-save"
-              class="bg-primary-green text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition">
-              Speichern
-            </button>
-          </div>
+    </div>
+  </div>
+
+  <!-- Cookie Settings Modal -->
+  <div id="cookie-settings-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white text-gray-900 p-4 sm:p-6 rounded-lg max-w-lg w-full mx-4">
+      <h3 class="text-lg font-semibold mb-4">Cookie-Einstellungen</h3>
+      <div class="space-y-4">
+        <div>
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" checked disabled class="text-primary-green focus:ring-primary-green" />
+            <span class="text-sm">Notwendige Cookies (immer aktiv)</span>
+          </label>
         </div>
+        <div>
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" id="analytics-cookies" class="text-primary-green focus:ring-primary-green" />
+            <span class="text-sm">Analyse-Cookies</span>
+          </label>
+        </div>
+        <div>
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" id="marketing-cookies" class="text-primary-green focus:ring-primary-green" />
+            <span class="text-sm">Marketing-Cookies</span>
+          </label>
+        </div>
+      </div>
+      <div class="flex justify-end mt-4">
+        <button id="cookie-save" class="bg-primary-green text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-700 transition">
+          Speichern
+        </button>
       </div>
     </div>
   </div>
@@ -357,6 +354,8 @@
       </div>
     </div>
   </footer>
+    <script src="assets/js/cookies.js"></script>
+
 
 </body>
 
